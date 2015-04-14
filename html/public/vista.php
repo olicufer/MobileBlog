@@ -77,7 +77,7 @@
 			        	<span class="label label-primary"><?php echo $art['nombre']?></span>
 			        	<span class="label label-default"><?php echo $art['fecha']?></span>
 			        </h4>
-			        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			        <?php echo $art['contenido']?>
 			        
 			      </div>
 			    </div>
