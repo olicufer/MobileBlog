@@ -21,8 +21,11 @@ $articulos = getArticulos();
 if(!isset($_SESSION)){
 	session_start();
 }
-$perfil = $_SESSION["perfil"];
-//var_dump($perfil);
+
+if(isset($_SESSION["perfil"])){
+	$perfil = $_SESSION["perfil"];
+	//var_dump($perfil);
+}
 
 
 require 'html/public/vista.php';
