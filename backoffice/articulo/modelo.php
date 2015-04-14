@@ -10,11 +10,11 @@
 	//insertar:   INSERT INTO `articulo`( `titulo`) VALUES ("SSSSSSSS")
 	//modificar:  UPDATE `articulo` SET `titulo`=["el que quiera"] WHERE id=1
 
-	function insertarArticulo($titulo, $id_usuario=1, $contenido=""){
+	function insertarArticulo($titulo, $id_usuario=1, $contenido="", $url_foto){
 		
 		$db = new Database();
 		$db->connect();
-		$db->insert('articulo', array('titulo'=>$titulo , 'id_usuario'=>$id_usuario, 'contenido'=>$contenido));		
+		$db->insert('articulo', array('titulo'=>$titulo , 'id_usuario'=>$id_usuario, 'contenido'=>$contenido,'url_foto'=>$url_foto));		
 		$db->disconnect();
 		
 	}
@@ -58,7 +58,7 @@
 
 		
 		
-		$sql = "SELECT a.id , titulo, id_usuario, nombre , fecha, nombre, contenido FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id";
+		$sql = "SELECT a.id , titulo, id_usuario, nombre , fecha, nombre, contenido, url_foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id";
 		
 		$db = new Database();
 		$db->connect();
@@ -83,11 +83,11 @@
 
 	
 	
-	function modificarArticulo( $id, $tit , $id_usuario=1, $contenido="")
+	function modificarArticulo( $id, $tit , $id_usuario=1, $contenido="", $url_foto)
 	{
 		$db = new Database();
 		$db->connect();
-		$db->update('articulo', array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'contenido'=>$contenido), 'id='.$id);		
+		$db->update('articulo', array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'contenido'=>$contenido, 'url_foto'=>$url_foto), 'id='.$id);		
 		$db->disconnect();		
 		
 	}

@@ -6,6 +6,8 @@ define ('APP_NAME', 'MobileBlog');
 
 define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
+define('UPLOAD_FOLDER', $_SERVER["DOCUMENT_ROOT"].APP_NAME.'/uploads/' );
+
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
 define('WEBROOT_CORE', WEBROOT.'core/' );

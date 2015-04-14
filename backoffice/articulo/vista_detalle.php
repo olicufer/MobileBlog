@@ -18,7 +18,7 @@
   
 				  
 				  
-				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post">
+				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post" enctype="multipart/form-data">
 				  
 					 <div class="form-group">				  
 				  		<input type="text" name="titulo" required placeholder="Titulo minimo 5 letras" pattern=".{5,}" value="<?php echo $articulo['titulo'];?>">
@@ -37,6 +37,12 @@
 						echo ' </div>';
 				  		
 				  	} //if ?> 
+				  	 
+				  	<input type="file" name="foto" id="foto" /> 
+				  	
+				  	<?php if (!empty($articulo['url_foto'])){ ?>
+				  		<img src="<?php echo WEBROOT.$foto?>" />
+				  	<?php }?> 
 				  	 
 				  	<textarea rows="8" cols="40" name="contenido"><?php echo $articulo['contenido'];?> </textarea> 
 				  	 

@@ -67,7 +67,7 @@ function op_listar($perfil){
 function op_insert($perfil){
 	//realizar inserccion
 	if (isset($_POST["titulo"])) {
-		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST["contenido"]); 
+		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST["contenido"], Utilidades::uploadFoto() ); 
 		//listar de nuevo todos
 		op_listar($perfil);
 	}else{
@@ -114,7 +114,7 @@ function op_modificar($perfil){
 		$id_usuario = $_POST["id_usuario"];
 	}
 	
-	modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario , $_POST['contenido']);
+	modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario , $_POST['contenido'], Utilidades::uploadFoto() );
 	op_listar($perfil);	
 	
 	

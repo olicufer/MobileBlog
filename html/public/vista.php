@@ -71,7 +71,14 @@
 			  <div class="col-sm-6 col-md-4">
 			    <div class="thumbnail">
 			      <h3><?php echo $art['titulo']?></h3>
-			      <img src="html/public/images/foto.svg" alt="foto por defecto">
+			      
+			      <?php 
+			      if (!empty($art['url_foto'])){
+			      	$foto = $art['url_foto'];	
+			      }else{
+			      	$foto = "html/public/images/foto.svg";
+			      }?>
+			      <img src="<?php echo WEBROOT.$foto?>" alt="foto por defecto">
 			      <div class="caption">			        
 			        <h4>
 			        	<span class="label label-primary"><?php echo $art['nombre']?></span>
