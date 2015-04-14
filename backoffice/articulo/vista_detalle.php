@@ -38,6 +38,8 @@
 				  		
 				  	} //if ?> 
 				  	 
+				  	<textarea rows="8" cols="40" name="contenido"><?php echo $articulo['contenido'];?> </textarea> 
+				  	 
 				  	 				  	
 				  	<input type="hidden" name="id" value="<?php echo $articulo['id'];?>">
 				  	
@@ -53,6 +55,9 @@
 						  	<input type="submit" value="Crear" class="btn btn-outline btn-success btn-lg">
 						  </div>	
 				  	 <?php } ?>
+				  	
+				  	
+				  	
 				  	
 				  </form>
 				  
