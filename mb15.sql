@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 4.1.14
--- http://www.phpmyadmin.net
+-- http://www.phpmyadmin.net  
 --
 -- Servidor: 127.0.0.1
 -- Tiempo de generación: 14-04-2015 a las 10:49:45
