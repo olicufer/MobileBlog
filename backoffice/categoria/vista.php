@@ -16,35 +16,24 @@
            <!--  CONTENIDO PROPIO  --> 
            <div class="panel panel-default">
                 <div class="panel-heading">
-                     <h3 class="text-primary">Listado usuarios</h3>
+                     <h3 class="text-primary">Listado Categorias</h3>
                 </div>
                 <div class="panel-body">
                 
                   <table id="tabla">					
 					<thead>
 						<tr>						
-							<th>Email</th>					
-							<th>Rol</th>
+							<th>ID</th>					
 							<th>Nombre</th>
-							<th>Operacion</th>
+							
 						</tr>
 					</thead>
 					
 					<tbody>
-					    <?php foreach($usuarios as $user): ?>
-					    <tr>
-					    	
-					        <td><?php echo $user['email']?></td>
-					        <td><?php echo Constantes::$roles[$user['rol']]?></td>
-					        <td>
-					        	<a href="<?php echo(CONTROLLER_USER);?>?op=<?php echo(OP_DETALLE);?>&id=<?php echo $user['id']?>" >
-					        		<?php echo $user['nombre']?>
-					        	</a>
-					        </td>
-					        <td>
-					        	<a href="<?php echo(CONTROLLER_USER);?>?id=<?php echo $user['id']?>&op=<?php echo(OP_ELIMINAR);?>" 
-					        	   title="Eliminar usuario"> <i class="fa fa-trash fa-fw"></i> </a> 
-					        </td>
+					    <?php foreach($categorias as $cat): ?>
+					    <tr>					    	
+					        <td>1</td>
+					        <td>nombre</td>					        
 					    </tr>
 						<?php endforeach;?>
 					</tbody>
