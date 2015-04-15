@@ -88,7 +88,9 @@ class Utilidades{
 					$resultado = move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta);
 					if ($resultado){
 						echo "el archivo ha sido movido exitosamente";
-						$path = $ruta;
+						
+						//si usamos UPLOAD_FOLDER tiene la ruta desde C: y no vale para Web
+						$path = IMAGES.$_FILES['foto']['name'];
 		
 		
 					} else {

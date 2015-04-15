@@ -6,7 +6,11 @@ define ('APP_NAME', 'MobileBlog');
 
 define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
+//ruta fisica para subir imagenes
 define('UPLOAD_FOLDER', $_SERVER["DOCUMENT_ROOT"].APP_NAME.'/uploads/' );
+
+//ruta relativa para imagenes en la  Web
+define('IMAGES', '/uploads/' );
 
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 

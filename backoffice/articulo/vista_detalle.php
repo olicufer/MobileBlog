@@ -38,10 +38,12 @@
 				  		
 				  	} //if ?> 
 				  	 
-				  	<input type="file" name="foto" id="foto" /> 
+				  	 
 				  	
 				  	<?php if (!empty($articulo['url_foto'])){ ?>
-				  		<img src="<?php echo WEBROOT.$foto?>" />
+				  		<img src="<?php echo WEBROOT.$articulo['url_foto']?>" />
+				  	<?php } else { ?>
+				  		<input type="file" name="foto" id="foto" />	
 				  	<?php }?> 
 				  	 
 				  	<textarea rows="8" cols="40" name="contenido"><?php echo $articulo['contenido'];?> </textarea> 
