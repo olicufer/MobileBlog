@@ -1,7 +1,7 @@
 <?php 
 
 require 'config.php';
-require_once 'DataBase.php';
+require_once 'Database.php';
 require '../backoffice/usuario/modelo.php';
 
 
