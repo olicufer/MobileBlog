@@ -49,8 +49,11 @@
 					</li>
 				<?php } else { ?>
 					<li class="active" >	
-					<a href="html/login.php"> Login </a>
+						<a href="html/login.php"> Login </a>					
 					</li>		
+					<li>
+						<a href="html/registro.php"> Registrate </a>
+					</li>
 				<?php } //else ?>
 			
 			</ul>	

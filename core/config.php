@@ -22,6 +22,8 @@ define('WEBROOT_HTML_BACK', WEBROOT_HTML.'backoffice/' );
 
 define('CONTROLLER_LOGIN', WEBROOT_CORE.'loginControlador.php' );
 
+define('CONTROLLER_REGISTRO', WEBROOT_CORE.'registroControlador.php' );
+
 define('CONTROLLER_LOGOUT', WEBROOT_CORE.'logoutControlador.php' );
 
 define('CONTROLLER_ARTICULO', WEBROOT_BACK.'articulo/controlador.php' );
