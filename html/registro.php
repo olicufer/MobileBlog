@@ -69,10 +69,11 @@ require_once '../core/config.php';
                     
                     <div class="panel-body">
                                         
-                        <form role="form" action="<?php echo CONTROLLER_REGISTRO; ?>" method="post">
+                        <form id="form-registro" role="form" action="<?php echo CONTROLLER_REGISTRO; ?>" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nombre Usuario" name="nombre" type="text" autofocus required pattern=".{6,}">
+                                    <span id="tooltip"></span>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" required>
@@ -99,7 +100,38 @@ require_once '../core/config.php';
         </div>
     </div>
 
-  
+  <script src="public/js/jquery.min.js"></script>  
+  <script>
+	  $( document ).ready(function() {
+	
+		console.info('jQuery cargado');
+
+		var tooltip = $('#tooltip'); //.html('hola');	
+		var inputNombre = $('#form-registro input[name="nombre"]');
+		
+		inputNombre.focusout(function(){
+			
+			console.info('llamda Ajax');	
+
+			$.ajax("ajax-registro.php", {
+				   "type": "get",   // usualmente post o get
+				   "success": function(result) {
+				     console.info("Retorno OK");
+					 tooltip.html(result);
+				     
+				   },
+				   "error": function(result) {
+				     console.error("Este callback maneja los errores", result);
+				   },
+				   "data": { usuario: inputNombre.val() },
+				   "async": true,
+				});
+			
+		});
+		  
+	 });
+
+  </script>
 
 </body>
 

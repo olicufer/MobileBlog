@@ -87,6 +87,23 @@
 		return $resul;
 	}
 	
+	function checkUsuarioNombre( $nombre )
+	{
+		$resul = false;
+		$db = new Database();
+		$db->connect();
+	
+		//si retorna true encuentra usuario
+		if ( $db->select( 'usuario','*','', 'nombre="'.$nombre.'"' ))
+		{
+			if ( isset($db->getResult()[0]) ){
+				$resul = true;
+			}
+		}
+		$db->disconnect();
+		return $resul;
+	}
+	
 	
 	function getUsuarios()
 	{
