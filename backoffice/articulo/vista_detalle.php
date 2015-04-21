@@ -68,7 +68,14 @@
 				  	
 				  	
 				  </form>
-				  
+				  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+<script type="text/javascript" src="http://tweet-it.s3.amazonaws.com/tweet-it.js"></script>
+<a href="javascript://" class="tweet-it">Publicar en Twitter</a>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".tweet-it").tweetIt();
+})
+</script>
 				  
 		</div><!-- /.row -->    
 </div><!-- <div id="page-wrapper"> -->

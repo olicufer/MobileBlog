@@ -69,7 +69,7 @@
 	 * @param $pass
 	 * @return usuario y si no existe null
 	 */
-	function checkUsuario( $email, $pass )
+	function checkUsuario( $email, $pass  )
 	{
 		$resul = null;
 		$db = new Database();
