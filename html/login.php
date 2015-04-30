@@ -82,7 +82,10 @@ require_once '../core/config.php';
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <a href="registro.php"> ¿No tienes cuenta? ¡Registrate! </a>
+                                </div>
+                                                             
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value="Logeate">
                                 
                             </fieldset>

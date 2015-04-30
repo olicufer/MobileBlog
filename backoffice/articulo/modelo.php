@@ -10,11 +10,19 @@
 	//insertar:   INSERT INTO `articulo`( `titulo`) VALUES ("SSSSSSSS")
 	//modificar:  UPDATE `articulo` SET `titulo`=["el que quiera"] WHERE id=1
 
-	function insertarArticulo($titulo, $id_usuario=1, $contenido="", $url_foto){
+	function insertarArticulo($titulo, $id_usuario=1, $contenido="", $path){
 		
 		$db = new Database();
 		$db->connect();
-		$db->insert('articulo', array('titulo'=>$titulo , 'id_usuario'=>$id_usuario, 'contenido'=>$contenido,'url_foto'=>$url_foto));		
+		$db->insert(
+				'articulo', 
+				array(
+					'titulo'=>$titulo , 
+					'id_usuario'=>$id_usuario,
+					'contenido'=>$contenido,
+					'foto' => $path							
+				)
+			);		
 		$db->disconnect();
 		
 	}
@@ -58,7 +66,7 @@
 
 		
 		
-		$sql = "SELECT a.id , titulo, id_usuario, nombre , fecha, nombre, contenido, url_foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id";
+		$sql = "SELECT a.id , titulo, id_usuario, nombre , fecha, contenido, nombre, foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id ORDER BY fecha DESC";
 		
 		$db = new Database();
 		$db->connect();
@@ -68,10 +76,8 @@
 			$where =' and id_usuario='.$id_usuario;
 		}
 		
-		$order = ' order by fecha';
-		
 		//$db->select( 'articulo','*','', $where ,'', '');
-		$db->sql( $sql.$where.$order );
+		$db->sql( $sql.$where );
 		
 		
 		$res = $db->getResult();
@@ -83,13 +89,31 @@
 
 	
 	
-	function modificarArticulo( $id, $tit , $id_usuario=1, $contenido="", $url_foto)
+	function modificarArticulo( $id, $tit , $id_usuario=1, $contenido="", $path)
 	{
 		$db = new Database();
 		$db->connect();
-		$db->update('articulo', array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'contenido'=>$contenido, 'url_foto'=>$url_foto), 'id='.$id);		
+		$db->update(
+					'articulo', 
+					array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'contenido'=>$contenido, 'foto'=>$path), 
+					'id='.$id
+			);		
 		$db->disconnect();		
 		
 	}
+	
+	function modificarArticuloConFoto( $id, $tit , $id_usuario=1, $contenido="")
+	{
+		$db = new Database();
+		$db->connect();
+		$db->update(
+				'articulo',
+				array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'contenido'=>$contenido),
+				'id='.$id
+		);
+		$db->disconnect();
+	
+	}
+	
 
 ?>

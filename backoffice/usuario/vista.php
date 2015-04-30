@@ -16,7 +16,7 @@
            <!--  CONTENIDO PROPIO  --> 
            <div class="panel panel-default">
                 <div class="panel-heading">
-                     <h3 class="text-primary">Listado usuarios</h3>
+                     <h3 class="text-primary">Listado Usuarios</h3>
                 </div>
                 <div class="panel-body">
                 

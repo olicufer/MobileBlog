@@ -2,12 +2,13 @@
   // Detalle para un Articulo ?>
 
 <?php require '../../html/backoffice/head.php'; ?>
+<?php require_once  '../../core/utilidades.php'; ?>
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
            <h1 class="page-header">
-           		Articulo ( Crear / Editar)           		
+           		Articulo (Crear / Editar)           		
            	</h1>
          </div>
         <!-- /.col-lg-12 -->
@@ -18,7 +19,7 @@
   
 				  
 				  
-				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post" enctype="multipart/form-data">
+				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post" enctype='multipart/form-data'>
 				  
 					 <div class="form-group">				  
 				  		<input type="text" name="titulo" required placeholder="Titulo minimo 5 letras" pattern=".{5,}" value="<?php echo $articulo['titulo'];?>">
@@ -38,19 +39,23 @@
 				  		
 				  	} //if ?> 
 				  	 
-				  	 
-				  	
-				  	<?php if (!empty($articulo['url_foto'])){ ?>
-				  		<img src="<?php echo WEBROOT.$articulo['url_foto']?>" />
-				  	<?php } else { ?>
-				  		<input type="file" name="foto" id="foto" />	
-				  	<?php }?> 
-				  	 
-				  	<textarea rows="8" cols="40" name="contenido"><?php echo $articulo['contenido'];?> </textarea> 
-				  	 
 				  	 				  	
 				  	<input type="hidden" name="id" value="<?php echo $articulo['id'];?>">
 				  	
+				  	
+				  	<textarea name="contenido" rows="" cols="">
+				  		<?php echo $articulo['contenido'];?>
+				  	</textarea>
+				  	
+				  	<?php if ($articulo['foto'] == ""){ ?>
+				  	<div class="form-group">
+				  		<input type='file' name='foto' id='foto' />
+				  	</div>
+				  	<?php }else{?>
+				  	<div class="form-group">
+				  		<img src="<?php echo $articulo['foto']?>" alt='foto' height="200px" width="200px" />
+				  	</div>
+				  	<?php }?>
 				  	
 				  	<?php if ( $articulo['id'] != -1 ){ ?>
 					  	 <div class="form-group">
@@ -64,18 +69,8 @@
 						  </div>	
 				  	 <?php } ?>
 				  	
-				  	
-				  	
-				  	
 				  </form>
-				  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-<script type="text/javascript" src="http://tweet-it.s3.amazonaws.com/tweet-it.js"></script>
-<a href="javascript://" class="tweet-it">Publicar en Twitter</a>
-<script type="text/javascript">
-$(document).ready(function(){
-$(".tweet-it").tweetIt();
-})
-</script>
+				  
 				  
 		</div><!-- /.row -->    
 </div><!-- <div id="page-wrapper"> -->

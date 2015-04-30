@@ -1,19 +1,17 @@
 <?php
-	
-	require_once '../../core/Database.php';
 
      error_reporting(E_ALL ^ E_DEPRECATED);
 
-	//detalle:    SELECT id, fecha, titulo FROM articulo where id=1
+	//detalle:    SELECT id,fecha, titulo FROM articulo where id=1
 	//eliminar:   DELETE FROM `articulo` WHERE `id`=1
 	//insertar:   INSERT INTO `articulo`( `titulo`) VALUES ("SSSSSSSS")
 	//modificar:  UPDATE `articulo` SET `titulo`=["el que quiera"] WHERE id=1
 
-	function insertarCategoria($titulo){
-		$cn = mysql_connect('localhost', 'root', '');
-		mysql_select_db('mb15', $cn);
+	function insertarCategoria($categoria){
+		$cn = mysql_connect('localhost', 'root', 'root');
+		mysql_select_db('tienda', $cn);
 		
-		$sql = 'INSERT INTO `categoria`(`titulo`) VALUES ("'.$titulo.'")';
+		$sql = 'INSERT INTO `categorias`( `titulo`) VALUES ("'.$categoria.'")';
 		//echo ("sql " . $sql);
 		if ( !mysql_query( $sql, $cn) )
 		{
@@ -23,7 +21,6 @@
 		mysql_close();
 	}
 
-	
 	/**
 	 * Eliminar un articulo por su identificador
 	 * @param $id identifacor del articulo
@@ -32,10 +29,10 @@
 	function eliminarCategoria( $id ){
 		$resul = false;
 		
-		$cn = mysql_connect('localhost', 'root', '');
-		mysql_select_db('mb15', $cn);
+		$cn = mysql_connect('localhost', 'root', 'root');
+		mysql_select_db('tienda', $cn);
 		
-		$resul = mysql_query('DELETE FROM categoria WHERE id='.$id , $cn);
+		$resul = mysql_query('DELETE FROM categorias WHERE id='.$id , $cn);
 		
 		mysql_close();
 		
@@ -50,54 +47,55 @@
 	 */
 	function detalleCategoria( $id )
 	{
-		$cn = mysql_connect('localhost', 'root', '');
-		mysql_select_db('mb15', $cn);
+		$cn = mysql_connect('localhost', 'root', 'root');
+		mysql_select_db('tienda', $cn);
 	
-		$resultado = mysql_query('SELECT id ,fecha, titulo FROM categoria where id='.$id , $cn);
+		$resultado = mysql_query('SELECT id , titulo FROM categorias where id='.$id , $cn);
 		
-		$categorias = array();
+		$articulos = array();
 	
-		while($categoria = mysql_fetch_assoc($resultado))
+		while($articulo = mysql_fetch_assoc($resultado))
 		{
-			$categorias[] = $categoria;
+			$articulos[] = $articulo;
 		}
 	
 		mysql_close();
 	
 		//comrpobar longitud antes de retornar
-		if ( sizeof($categorias) > 0 ){
-			return $categorias[0];
+		if ( sizeof($articulos) > 0 ){
+			return $articulos[0];
 		}else {
 			return null;	
 		}	
 	}
 	
-	
 	function getCategorias()
 	{
-		$cn = mysql_connect('localhost', 'root', '');
-		mysql_select_db('mb15', $cn);
+		$cn = mysql_connect('localhost', 'root', 'root');
+		mysql_select_db('tienda', $cn);
 	
-		$resultado = mysql_query('SELECT id, fecha, titulo FROM categoria', $cn);
+		$resultado = mysql_query('SELECT id,nombre FROM categorias', $cn);
 		$articulos = array();
 		 
-		while($categoria = mysql_fetch_assoc($resultado))
+		while($articulo = mysql_fetch_assoc($resultado))
 		{
-			$categorias[] = $categoria;
+			$articulos[] = $articulo;
 		}
 		 
 		mysql_close();
 	
-		return $categorias;
+		return $articulos;
 	}
 
 	
-	function modificarCategoria( $id, $tit ){
-		$cn = mysql_connect('localhost', 'root', '');
-		mysql_select_db('mb15', $cn);
+	
+	function modificarCategoria( $id, $nom )
+	{
+		$cn = mysql_connect('localhost', 'root', 'root');
+		mysql_select_db('tienda', $cn);
 		
 		       
-		$sql = 'UPDATE `categoria` SET `titulo`="'.$tit.'" WHERE `id`='.$id;
+		$sql = 'UPDATE `categorias` SET `titulo`="'.$nom.'" WHERE `id`='.$id;
 		
 		if ( !mysql_query( $sql, $cn) )
 		{
@@ -108,5 +106,4 @@
 		
 	}
 
-	
 ?>

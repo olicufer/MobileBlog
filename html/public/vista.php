@@ -49,7 +49,7 @@
 					</li>
 				<?php } else { ?>
 					<li class="active" >	
-						<a href="html/login.php"> Login </a>					
+						<a href="html/login.php"> Login </a>
 					</li>		
 					<li>
 						<a href="html/registro.php"> Registrate </a>
@@ -68,26 +68,29 @@
 	  
 	   	<br><br><br><br>
 	   		   	
-	   	<?php  foreach ($articulos as $art ) { ?>
+	   	<?php  
+	   	
+	   	foreach ($articulos as $art ) { ?>
 	   	
 		   	<div class="row">
 			  <div class="col-sm-6 col-md-4">
 			    <div class="thumbnail">
 			      <h3><?php echo $art['titulo']?></h3>
-			      
-			      <?php 
-			      if (!empty($art['url_foto'])){
-			      	$foto = $art['url_foto'];	
+			      <?php if ($art['foto'] !="" ){
+			      		echo "<img src='". $art['foto'] ."' alt='foto'>";
 			      }else{
-			      	$foto = "html/public/images/foto.svg";
-			      }?>
-			      <img src="<?php echo WEBROOT.$foto?>" alt="foto por defecto">
+			      		echo "<img src='html/public/images/foto.svg' alt='foto por defecto'>";
+					}?>
+			      		      
 			      <div class="caption">			        
 			        <h4>
 			        	<span class="label label-primary"><?php echo $art['nombre']?></span>
 			        	<span class="label label-default"><?php echo $art['fecha']?></span>
 			        </h4>
-			        <?php echo $art['contenido']?>
+			        
+			        <div class="content_text">
+			            <?php echo $art['contenido']?>
+			        </div>
 			        
 			      </div>
 			    </div>

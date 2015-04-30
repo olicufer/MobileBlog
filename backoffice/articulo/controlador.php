@@ -1,6 +1,6 @@
 <?php
 require_once ('../../core/config.php');
-require_once ('../../core/DataBase.php');
+require_once ('../../core/Database.php');
 require_once('../../core/utilidades.php');
 
 require_once('modelo.php');
@@ -67,7 +67,7 @@ function op_listar($perfil){
 function op_insert($perfil){
 	//realizar inserccion
 	if (isset($_POST["titulo"])) {
-		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST["contenido"], Utilidades::uploadFoto() ); 
+		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['contenido'], Utilidades::uploadFoto() ); 
 		//listar de nuevo todos
 		op_listar($perfil);
 	}else{
@@ -92,7 +92,8 @@ function op_detalle($perfil){
 		$articulo = array (
 						'id'     => -1,
 						'titulo' => '',
-						'contenido' => ''	
+						'contenido' => '',
+						'foto' => ''	
 					);
 	}
 
@@ -113,8 +114,14 @@ function op_modificar($perfil){
 	if ( isset($_POST["id_usuario"]) ){
 		$id_usuario = $_POST["id_usuario"];
 	}
+
+	if(!isset($_POST['foto'])){
+		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido']);
+	}else{
+		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido'], Utilidades::uploadFoto() );
+	}
 	
-	modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario , $_POST['contenido'], Utilidades::uploadFoto() );
+	
 	op_listar($perfil);	
 	
 	

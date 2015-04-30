@@ -2,17 +2,17 @@
 
 /* Definicion Variables Globales */
 
-define ('APP_NAME', 'MobileBlog');
+define ('APP_NAME', 'MobileBlogMio');
 
 define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
-//ruta fisica para subir imagenes
-define('UPLOAD_FOLDER', $_SERVER["DOCUMENT_ROOT"].APP_NAME.'/uploads/' );
-
-//ruta relativa para imagenes en la  Web
-define('IMAGES', '/uploads/' );
-
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
+
+//define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/html/public/images/' );
+
+define('UPLOAD_DIRECTORIO', APP_NAME.'/html/public/images/' );
+
+define('PUBLIC_IMG','/' . APP_NAME.'/html/public/images/' );
 
 define('WEBROOT_CORE', WEBROOT.'core/' );
 
@@ -31,7 +31,6 @@ define('CONTROLLER_ARTICULO', WEBROOT_BACK.'articulo/controlador.php' );
 define('CONTROLLER_CATEGORIA', WEBROOT_BACK.'categoria/controlador.php' );
 
 define('CONTROLLER_USER', WEBROOT_BACK.'usuario/controlador.php' );
-
 
 /* Operaciones */
 

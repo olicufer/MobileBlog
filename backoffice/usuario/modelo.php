@@ -69,7 +69,7 @@
 	 * @param $pass
 	 * @return usuario y si no existe null
 	 */
-	function checkUsuario( $email, $pass  )
+	function checkUsuario( $email, $pass )
 	{
 		$resul = null;
 		$db = new Database();
@@ -87,23 +87,69 @@
 		return $resul;
 	}
 	
-	function checkUsuarioNombre( $nombre )
+	/**
+	 * Comprueba si existe el usuario en la bbdd por su nombre y email
+	 * @param $email
+	 * @param $pass
+	 * @return usuario y si no existe null
+	 */
+	function checkUsuarioNuevo( $email, $nombre )
 	{
-		$resul = false;
+		$resul = null;
 		$db = new Database();
 		$db->connect();
 	
+		//escapaar cadenas que puedan tener simbolo especiales
+		$email = $db->escapeString($email);
+	
 		//si retorna true encuentra usuario
-		if ( $db->select( 'usuario','*','', 'nombre="'.$nombre.'"' ))
+		if ( $db->select( 'usuario','*','', "email='".$email."' or nombre='".$nombre."'" ))
 		{
-			if ( isset($db->getResult()[0]) ){
-				$resul = true;
-			}
+			$resul = $db->getResult()[0];//retorna primer resultado del array
+		}else{
+			throw new Exception('Fallo SQL: checkUsuarioNuevo');
 		}
 		$db->disconnect();
 		return $resul;
 	}
 	
+	function checkUsuarioNombre( $nombre )
+	{
+		$resul = null;
+		$db = new Database();
+		$db->connect();
+	
+		//si retorna true encuentra usuario
+		if ( $db->select( 'usuario','*','', "nombre='".$nombre."'" ))
+		{
+			if (isset($db->getResult()[0])){
+				$resul = true;
+			}			
+		}else{
+			throw new Exception('Fallo SQL: checkUsuarioNuevo');
+		}
+		$db->disconnect();
+		return $resul;
+	}
+	
+	function checkUsuarioEmail( $email )
+	{
+		$resul = null;
+		$db = new Database();
+		$db->connect();
+	
+		//si retorna true encuentra usuario
+		if ( $db->select( 'usuario','*','', "email='".$email."'" ))
+		{
+			if (isset($db->getResult()[0])){
+				$resul = true;
+			}
+		}else{
+			throw new Exception('Fallo SQL: checkUsuarioNuevo');
+		}
+		$db->disconnect();
+		return $resul;
+	}
 	
 	function getUsuarios()
 	{
@@ -119,8 +165,7 @@
 		
 	}
 
-	
-	
+		
 	function modificarUsuario( $id, $email, $pass, $nombre, $rol)
 	{
 		$db = new Database();
