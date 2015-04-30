@@ -5,6 +5,7 @@
  * 
  * TODO cuando se haga scroll hacia abajo que cargue otras 10 noticias con AJAX
  * cambio tonto
+ * Cambio de Txemari
  */
 
 require_once 'core/config.php';
