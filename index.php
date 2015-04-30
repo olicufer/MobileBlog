@@ -1,5 +1,7 @@
 <?php
 
+//AGER HA HECHO UN CAMBIO EN EL INDEX
+
 /**
  * Controlador Pagina Principal, donde se muestran las ultimas 10 noticias
  * 
