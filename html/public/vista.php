@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,7 +79,7 @@
 			    <div class="thumbnail">
 			      <h3><?php echo $art['titulo']?></h3>
 			      <?php if ($art['foto'] !="" ){
-			      		echo "<img src='". $art['foto'] ."' alt='foto'>";
+			      		echo "<img src='". IMAGES.$art['foto'] ."' alt='foto'>";
 			      }else{
 			      		echo "<img src='html/public/images/foto.svg' alt='foto por defecto'>";
 					}?>

@@ -2,17 +2,15 @@
 
 /* Definicion Variables Globales */
 
-define ('APP_NAME', 'MobileBlogMio');
+define ('APP_NAME', 'MobileBlog');
 
 define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
-//define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/html/public/images/' );
+define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/uploads/' );
 
-define('UPLOAD_DIRECTORIO', APP_NAME.'/html/public/images/' );
-
-define('PUBLIC_IMG','/' . APP_NAME.'/html/public/images/' );
+define('IMAGES', WEBROOT.'uploads/' );
 
 define('WEBROOT_CORE', WEBROOT.'core/' );
 
