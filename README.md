@@ -14,13 +14,24 @@ Web de administración para el perfil del usuario.
 Cada usuario solo puede acceder a su perfil y modificar sus datos: [nombre, email, foto y password]
 
 
-<h3>Instalación</h3>
+<h2>Instalación</h2>
 
 Cambiar los parametros de conexión a la base datos en fichero: <strong>"core/Database.php"</strong>
 Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tablas necesarias 
 
+<h3>Emails</h3>
+Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuración acceder al fichero <strong>core/CorreoElectronico.php</strong>
 
-<h3>Usuarios</h3>
+	//Atributos privados
+	private $phpMailer = null;
+	private $port = 465;
+	private $host = "smtp.gmail.com";
+	private $mail_user = 'tuEmail0@gmail.com';
+	private $mail_pass = 'tu contraseña';
+	private $appName = 'MobileBlog App';
+	private $type_smtp = 'ssl';
+
+<h3>Usuarios de pruebas</h3>
 
 admin@admin.com	Administrador; pass: 123456		
 user2@user2.com	Usuario      ; pass: 123456  
