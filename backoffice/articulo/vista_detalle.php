@@ -53,7 +53,7 @@
 				  	</div>
 				  	<?php }else{?>
 				  	<div class="form-group">
-				  		<img src="<?php echo $articulo['foto']?>" alt='foto' height="200px" width="200px" />
+				  		<img src="<?php echo IMAGES.$articulo['foto']?>" alt='foto' height="200px" width="200px" />
 				  	</div>
 				  	<?php }?>
 				  	

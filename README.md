@@ -13,3 +13,15 @@ Solo accesible para usuarios administradores
 Web de administración para el perfil del usuario.
 Cada usuario solo puede acceder a su perfil y modificar sus datos: [nombre, email, foto y password]
 
+
+<h3>Instalación</h3>
+
+Cambiar los parametros de conexión a la base datos en fichero: <strong>"core/Database.php"</strong>
+Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tablas necesarias 
+
+
+<h3>Usuarios</h3>
+
+admin@admin.com	Administrador; pass: 123456		
+user2@user2.com	Usuario      ; pass: 123456  
+
