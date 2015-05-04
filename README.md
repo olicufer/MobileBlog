@@ -19,6 +19,15 @@ Cada usuario solo puede acceder a su perfil y modificar sus datos: [nombre, emai
 Cambiar los parametros de conexión a la base datos en fichero: <strong>"core/Database.php"</strong>
 Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tablas necesarias 
 
+	/* 
+	* Variables privadas para conexion BBDD
+	*/
+	private $db_host = "localhost"; // servidor
+	private $db_user = "root";      // usuario
+	private $db_pass = "";          // password
+	private $db_name = "mb15";	// nombre bbdd
+
+
 <h3>Emails</h3>
 Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuración acceder al fichero <strong>core/CorreoElectronico.php</strong>
 
