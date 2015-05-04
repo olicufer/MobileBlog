@@ -67,7 +67,7 @@ function op_listar($perfil){
 function op_insert($perfil){
 	//realizar inserccion
 	if (isset($_POST["titulo"])) {
-		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['contenido'], Utilidades::uploadFoto() ); 
+		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() ); 
 		//listar de nuevo todos
 		op_listar($perfil);
 	}else{
@@ -116,9 +116,9 @@ function op_modificar($perfil){
 	}
 
 	if(!isset($_POST['foto'])){
-		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido']);
+		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido']);
 	}else{
-		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido'], Utilidades::uploadFoto() );
+		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
 	}
 	
 	

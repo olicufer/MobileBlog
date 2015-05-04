@@ -37,7 +37,21 @@
 						echo $html;
 						echo ' </div>';
 				  		
-				  	} //if ?> 
+				  	} //if ?>
+				  	
+				  	<?php if ( isset($categorias)) { 
+						echo ' <div class="form-group">	';	
+				  		$html = '<select name="id_categoria">';		
+						foreach ( $categorias as $categ ) {								 			
+							$html .='<option selected value="'.$categ['id'].'">';								
+							$html .= $categ['titulo'];
+							$html .='</option>';
+						}
+						$html .='</select>';
+						echo $html;
+						echo ' </div>';
+				  		
+				  	} //if ?>  
 				  	 
 				  	 				  	
 				  	<input type="hidden" name="id" value="<?php echo $articulo['id'];?>">
