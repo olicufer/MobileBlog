@@ -43,14 +43,14 @@ require_once '../core/config.php';
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <style>
+    <!--  <style>
       #map-canvas {
         height: 300px;
         width: 300px;
         margin: 0px;
         padding: 0px
       }
-    </style>
+    </style>-->
 
 </head>
 
@@ -100,8 +100,8 @@ require_once '../core/config.php';
                             </fieldset>
                         </form>
                         
-                        <div id="loc">No disponible Geolocalizacion</div>
-                        <div id="map-canvas"></div>
+                        <!--  <div id="loc">No disponible Geolocalizacion</div>
+                        <div id="map-canvas"></div>-->
                         
                     </div>
                 </div>
@@ -120,7 +120,7 @@ require_once '../core/config.php';
 		  //console.warn('Esto es un warning');
 
 		  //GEOLOCALIZACION	
-		  google.maps.event.addDomListener(window, 'load', init);
+		  /*google.maps.event.addDomListener(window, 'load', init);
 
 		  function init(){
 			  var geo = navigator.geolocation;
@@ -150,7 +150,7 @@ require_once '../core/config.php';
 		  
 		  function failGeolocation(){
 				$('#loc').html('<p>No ha sido posible tu Geolocalizacion...</p>');
-		  }
+		  }*/
 		  
 		  var tooltip = $('#tooltip'); //.html('hola');
 		  var tooltip2 = $('#tooltip2');
