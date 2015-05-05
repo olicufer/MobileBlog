@@ -67,7 +67,7 @@
 
 		
 		
-		$sql = "SELECT a.id , titulo, id_usuario, id_categoria, nombre , fecha, contenido, nombre, foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id ORDER BY fecha DESC";
+		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c WHERE a.id_usuario = u.id and a.id_categoria = c.id ORDER BY fecha DESC";
 		
 		$db = new Database();
 		$db->connect();

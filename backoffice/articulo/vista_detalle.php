@@ -39,7 +39,10 @@
 				  		
 				  	} //if ?>
 				  	
-				  	<?php if ( isset($categorias)) { 
+				  	<?php
+
+				  	 //var_dump($articulo);
+				  	 if ( isset($categorias)) { 
 						echo ' <div class="form-group">	';	
 				  		$html = '<select name="id_categoria">';		
 						foreach ( $categorias as $categ ) {								 			
