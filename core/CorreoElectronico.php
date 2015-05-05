@@ -8,8 +8,8 @@ class CorreoElectronico {
 	private $phpMailer = null;
 	private $port = 465;
 	private $host = "smtp.gmail.com";
-	private $mail_user = 'gaizkamontero20@gmail.com';
-	private $mail_pass = 'gmontero20';
+	private $mail_user = 'mobileblog2015@gmail.com';
+	private $mail_pass = '2015mb15';
 	private $appName = 'MobileBlog App';
 	private $type_smtp = 'ssl';
 	
