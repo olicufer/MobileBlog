@@ -45,9 +45,16 @@
 				  	 if ( isset($categorias)) { 
 						echo ' <div class="form-group">	';	
 				  		$html = '<select name="id_categoria">';		
-						foreach ( $categorias as $categ ) {								 			
-							$html .='<option selected value="'.$categ['id'].'">';								
+						foreach ( $categorias as $categ ) {		
+
+							if ( $articulo['id_categoria'] == $categ['id'] ){							
+								$html .='<option selected value="'.$categ['id'].'">';
+							}else{
+								$html .='<option value="'.$categ['id'].'">';
+							}
+								
 							$html .= $categ['titulo'];
+							//var_dump($categ);
 							$html .='</option>';
 						}
 						$html .='</select>';
