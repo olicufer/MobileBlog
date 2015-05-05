@@ -24,9 +24,10 @@
 					<table id="tabla">
 					<thead>
 						<tr>
-							<th>id</th>
-							<th>usuario</th>
+							<th>Id</th>
+							<th>Usuario</th>
 							<th>Fecha</th>
+							<th>Categoria</th>
 							<th>Titulo</th>
 							<th>Operacion</th>
 						</tr>
@@ -37,6 +38,7 @@
 					    	<td><?php echo $articulo['id']?></td>
 					    	<td><?php echo $articulo['nombre']?></td>
 					        <td><?php echo $articulo['fecha']?></td>
+					        <td><?php echo $articulo['categoria']?></td>
 					        <td>
 					        	<a href="<?php echo(CONTROLLER_ARTICULO);?>?op=<?php echo(OP_DETALLE);?>&id=<?php echo $articulo['id']?>" >
 					        		<?php echo $articulo['titulo']?>

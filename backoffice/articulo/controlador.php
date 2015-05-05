@@ -56,9 +56,9 @@ function op_listar($perfil){
 	//obtener todos los articulos
 
 	if ( $perfil['rol'] == Constantes::$ROL_ADMINISTRADOR ){
-		$articulos = getArticulos( -1 , null  );
+		$articulos = getArticulos( -1 , null, null );
 	}else{
-		$articulos = getArticulos( -1 , $perfil['id']  );
+		$articulos = getArticulos( -1 , $perfil['id'],  $_POST['id_categoria'] );
 	}	
 	//llamar vista listado
 	require('vista.php');
@@ -67,7 +67,7 @@ function op_listar($perfil){
 function op_insert($perfil){
 	//realizar inserccion
 	if (isset($_POST["titulo"])) {
-		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['contenido'], Utilidades::uploadFoto() ); 
+		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() ); 
 		//listar de nuevo todos
 		op_listar($perfil);
 	}else{
@@ -83,6 +83,9 @@ function op_eliminar($perfil){
 
 function op_detalle($perfil){
 
+	//obtener categorias
+	require_once '../categoria/modelo.php';
+	$categorias = getCategorias();
 	
 	if ( isset($_GET['id'])){
 		//obtener articulo del modelo
@@ -92,6 +95,7 @@ function op_detalle($perfil){
 		$articulo = array (
 						'id'     => -1,
 						'titulo' => '',
+						'id_categoria' => '',
 						'contenido' => '',
 						'foto' => ''	
 					);
@@ -102,6 +106,7 @@ function op_detalle($perfil){
 	if ( $perfil['rol'] == Constantes::$ROL_ADMINISTRADOR){
 		require_once '../usuario/modelo.php';
 		$usuarios = getUsuarios();
+		
 	}	
 	
 	
@@ -116,9 +121,9 @@ function op_modificar($perfil){
 	}
 
 	if(!isset($_POST['foto'])){
-		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido']);
+		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido']);
 	}else{
-		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido'], Utilidades::uploadFoto() );
+		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
 	}
 	
 	
