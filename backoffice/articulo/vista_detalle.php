@@ -37,7 +37,31 @@
 						echo $html;
 						echo ' </div>';
 				  		
-				  	} //if ?> 
+				  	} //if ?>
+				  	
+				  	<?php
+
+				  	 //var_dump($articulo);
+				  	 if ( isset($categorias)) { 
+						echo ' <div class="form-group">	';	
+				  		$html = '<select name="id_categoria">';		
+						foreach ( $categorias as $categ ) {		
+
+							if ( $articulo['id_categoria'] == $categ['id'] ){							
+								$html .='<option selected value="'.$categ['id'].'">';
+							}else{
+								$html .='<option value="'.$categ['id'].'">';
+							}
+								
+							$html .= $categ['titulo'];
+							//var_dump($categ);
+							$html .='</option>';
+						}
+						$html .='</select>';
+						echo $html;
+						echo ' </div>';
+				  		
+				  	} //if ?>  
 				  	 
 				  	 				  	
 				  	<input type="hidden" name="id" value="<?php echo $articulo['id'];?>">
