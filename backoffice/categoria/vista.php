@@ -27,6 +27,7 @@
 							<th>Id</th>
 							<th>Fecha</th>
 							<th>Titulo</th>
+							<th>Articulos</th>
 							<th>Operacion</th>
 						</tr>
 					</thead>
@@ -44,6 +45,7 @@
 					        		<?php echo $categoria['titulo']?>
 					        	</a>
 					        </td>
+					         <td></td>
 					        <td>
 					        	<a href="<?php echo(CONTROLLER_CATEGORIA);?>?id=<?php echo $categoria['id']?>&op=<?php echo(OP_ELIMINAR);?>"  
 					        	   title="Eliminar categoria"><i class="fa fa-trash fa-fw"></i></a> 

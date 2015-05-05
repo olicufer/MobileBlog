@@ -62,12 +62,12 @@
 		}	
 	}
 	
-	function getArticulos( $limit=10 , $id_usuario=null)
+	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null)
 	{
 
 		
 		
-		$sql = "SELECT a.id , titulo, id_usuario, nombre , fecha, contenido, nombre, foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id ORDER BY fecha DESC";
+		$sql = "SELECT a.id , titulo, id_usuario, id_categoria, nombre , fecha, contenido, nombre, foto FROM `articulo` as a , `usuario` as u WHERE a.id_usuario = u.id ORDER BY fecha DESC";
 		
 		$db = new Database();
 		$db->connect();
@@ -75,6 +75,11 @@
 		$where = '';
 		if ( isset($id_usuario) ){
 			$where =' and id_usuario='.$id_usuario;
+		}
+		
+		$where = '';
+		if ( isset($id_categoria) ){
+			$where =' and id_categoria='.$id_categoria;
 		}
 		
 		//$db->select( 'articulo','*','', $where ,'', '');

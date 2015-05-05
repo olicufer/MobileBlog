@@ -56,9 +56,9 @@ function op_listar($perfil){
 	//obtener todos los articulos
 
 	if ( $perfil['rol'] == Constantes::$ROL_ADMINISTRADOR ){
-		$articulos = getArticulos( -1 , null  );
+		$articulos = getArticulos( -1 , null, null  );
 	}else{
-		$articulos = getArticulos( -1 , $perfil['id']  );
+		$articulos = getArticulos( -1 , $perfil['id'],  $_POST['id_categoria'] );
 	}	
 	//llamar vista listado
 	require('vista.php');
