@@ -28,7 +28,7 @@
 				  	
 				  	<?php
 							
-if (isset ( $usuarios )) {
+							if (isset ( $usuarios )) {
 								echo ' <div class="form-group">	';
 								$html = '<select name="id_usuario">';
 								foreach ( $usuarios as $user ) {
@@ -51,8 +51,7 @@ if (isset ( $usuarios )) {
 				  	</textarea>
 
 			<div class="form-group">
-				  	//si el artículo no tiene foto que ponga la de por defecto
-				  	<?php if ($articulo['foto'] == ""){ ?>
+				  	<?php if ($articulo['foto'] == ""){ //si el artículo no tiene foto que ponga la de por defecto ?>
 				  		<img src="<?php echo '../public/images/foto.svg' ?>" alt='foto'
 					class="img-med" />
 				  	<?php }else{//y sino que ponga la img guardada en la db?>
