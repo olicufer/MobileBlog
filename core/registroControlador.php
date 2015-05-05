@@ -36,7 +36,8 @@ try {
 		else{
 			try {
 				insertarUsuario($mail, $password, $nombre);
-				CorreoElectronico::mandarMail($mail, $nombre);
+				$email=new CorreoElectronico();
+				$email->mandarMail($mail, $nombre);
 			} catch (Exception $e) {
 				var_dump($e);	
 			}
