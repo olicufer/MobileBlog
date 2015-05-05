@@ -57,8 +57,8 @@
 	
 	
 	function getCategorias( $limit=10, $id_usuario=null ){
-		
-		$sql = "SELECT a.id, fecha, titulo FROM `categoria` as a";
+		//SELECT especial que contabiliza el nº de articulos de la categoria
+		$sql = "SELECT c.id, c.fecha, c.titulo, count(a.id_categoria) as articulos FROM `categoria` as c, `articulo` as a WHERE id_categoria = c.id group by a.id_categoria";
 		
 		$db = new Database();
 		$db->connect();

@@ -45,7 +45,8 @@
 					        		<?php echo $categoria['titulo']?>
 					        	</a>
 					        </td>
-					         <td></td>
+					        <!--Numero de articulos de la categoria-->
+					         <td><?php echo $categoria['articulos']?></td>
 					        <td>
 					        	<a href="<?php echo(CONTROLLER_CATEGORIA);?>?id=<?php echo $categoria['id']?>&op=<?php echo(OP_ELIMINAR);?>"  
 					        	   title="Eliminar categoria"><i class="fa fa-trash fa-fw"></i></a> 
