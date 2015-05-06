@@ -9,6 +9,7 @@
  */ 
 
 require_once '../core/config.php';
+require_once '../core/utilidades.php';
 
 
 ?>
@@ -65,15 +66,7 @@ require_once '../core/config.php';
                     </div>
                     
                  
-                    <?php 
-                    	
-                    	if ( isset($_GET['msg'])){
-                    		echo('<div class="alert alert-danger">');
-                    		echo $_GET['msg'];
-                    		echo('</div>');
-                    	}
-                    	
-                    ?>
+                     <?php Utilidades::pintarMensaje();  ?>
                     
                     
                     <div class="panel-body">
@@ -100,8 +93,7 @@ require_once '../core/config.php';
                             </fieldset>
                         </form>
                         
-                        <div id="loc">No disponible Geolocalizacion</div>
-                        <div id="map-canvas"></div>
+                       
                         
                     </div>
                 </div>
@@ -109,48 +101,13 @@ require_once '../core/config.php';
         </div>
     </div>
 
-   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  
   <script src="public/js/jquery.min.js"></script>
   <script>
 	  $( document ).ready(function() {
-
-		  // Handler for .ready() called.
+		 
 		  console.info('Jquery cargado');
-		  //console.error('Esto es un error');
-		  //console.warn('Esto es un warning');
 
-		  //GEOLOCALIZACION	
-		  google.maps.event.addDomListener(window, 'load', init);
-
-		  function init(){
-			  var geo = navigator.geolocation;
-			  geo.getCurrentPosition(showGeolocation, failGeolocation);
-		  }
-		  
-		  if(navigator.geolocation){
-				$('#loc').html('<p>Buscando tu Geolocalizacion...</p>');
-				var geo = navigator.geolocation;
-				geo.getCurrentPosition(showGeolocation, failGeolocation);
-		  }
-		  
-		  function showGeolocation(position){
-				$('#loc').html('<p><b>Latitud:</b>'+position.coords.latitude+'</p><p><b>Longitud:</b>'+position.coords.longitude+'</p>');
-
-				var map;
-
-				var mapOptions = {
-				    zoom: 18,
-				    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-				  };
-				  map = new google.maps.Map(document.getElementById('map-canvas'),
-				      mapOptions);
-				
-
-		  }
-		  
-		  function failGeolocation(){
-				$('#loc').html('<p>No ha sido posible tu Geolocalizacion...</p>');
-		  }
 		  
 		  var tooltip = $('#tooltip'); //.html('hola');
 		  var tooltip2 = $('#tooltip2');

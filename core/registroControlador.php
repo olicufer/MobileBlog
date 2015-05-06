@@ -22,7 +22,7 @@ try {
 	//Validar datos:
 		//1. Pass y repass sean iguales
 		if ($password!=$repPassword){
-			$msg="No has insertado las mismas contraseï¿½as";
+			$msg="No has insertado las mismas contraseñas";
 			header( 'Location: '.WEBROOT."html/registro.php?msg=".$msg );
 			exit;
 		}
@@ -41,8 +41,8 @@ try {
 				var_dump($e);	
 			}
 			
-			$msg="El registro se ha completado correctamente.";
-			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg );
+			$msg="El registro se ha completado correctamente. Revisa tu email para confirmar el registro";
+			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg."&msg-type=alert-success" );
 			exit;
 		}
 		//validacion ERROR => mensaje y mandar registro de nuevo
