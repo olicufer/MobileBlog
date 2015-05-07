@@ -9,16 +9,16 @@
         <div class="col-lg-12">
            <h1 class="page-header">
            		Articulo (Crear / Editar)           		
-           	</h1>
-         </div>
-        <!-- /.col-lg-12 -->
+           </h1>
         </div>
-        <!-- /.row -->
-        <div class="row">
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
 
-  
-				  
-				  
+  			<!-- CONTENIDO PROPIO -->   
+           	  <h1> Detalle articulo: <?php echo $articulo['titulo'];?></h1>
+			  
 				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post" enctype='multipart/form-data'>
 				  
 					 <div class="form-group">				  
@@ -83,12 +83,12 @@
 				  	
 				  	<?php if ( $articulo['id'] != -1 ){ ?>
 					  	 <div class="form-group">
-						  	<input type="hidden" name="op" value="4">
+						  	<input type="hidden" name="op" value="<?php echo(OP_MODIFICAR);?>">
 						  	<input type="submit" value="modificar" class="btn btn-outline btn-primary btn-lg">
 						  </div>	
 					 <?php } else { ?>
 						  <div class="form-group">
-						  	<input type="hidden" name="op" value="0">
+						  	<input type="hidden" name="op" value="<?php echo(OP_INSERTAR);?>">
 						  	<input type="submit" value="Crear" class="btn btn-outline btn-success btn-lg">
 						  </div>	
 				  	 <?php } ?>

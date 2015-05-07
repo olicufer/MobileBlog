@@ -54,11 +54,11 @@ switch ($op) {
 
 function op_listar($perfil){	
 	//obtener todos los articulos
-
 	if ( $perfil['rol'] == Constantes::$ROL_ADMINISTRADOR ){
 		$articulos = getArticulos( -1 , null, null );
 	}else{
-		$articulos = getArticulos( -1 , $perfil['id'],  $_POST['id_categoria'] );
+		//var_dump($_POST['id_categoria']);
+		$articulos = getArticulos( -1 , $perfil['id'], null  );
 	}	
 	//llamar vista listado
 	require('vista.php');
@@ -76,13 +76,11 @@ function op_insert($perfil){
 }
 
 function op_eliminar($perfil){
-	
 	eliminarArticulo( $_GET["id"] );
 	op_listar($perfil);	
 }
 
 function op_detalle($perfil){
-
 	//obtener categorias
 	require_once '../categoria/modelo.php';
 	$categorias = getCategorias();
@@ -106,16 +104,15 @@ function op_detalle($perfil){
 	if ( $perfil['rol'] == Constantes::$ROL_ADMINISTRADOR){
 		require_once '../usuario/modelo.php';
 		$usuarios = getUsuarios();
-		
 	}	
-	
 	
 	require('vista_detalle.php');
 }
 
 function op_modificar($perfil){
-
+	//Crear variable para ID de USUARIO
 	$id_usuario = $perfil['id']; 
+	//Si el formulario me envia el id_usuario lo uso:
 	if ( isset($_POST["id_usuario"]) ){
 		$id_usuario = $_POST["id_usuario"];
 	}
@@ -125,7 +122,6 @@ function op_modificar($perfil){
 	}else{
 		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
 	}
-	
 	
 	op_listar($perfil);	
 	

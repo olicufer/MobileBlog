@@ -35,7 +35,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                        	<a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        	<a href="userprofile.php"><i class="fa fa-user fa-fw"></i><?php echo $perfil['nombre']?></a>
                         </li>                        
                         <li class="divider"></li>
                         <li>

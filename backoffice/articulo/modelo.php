@@ -46,8 +46,7 @@
 	 * @param $id identificador del articulo
 	 * @return articulo si existe, en caso contraio null
 	 */
-	function detalleArticulo( $id )
-	{
+	function detalleArticulo( $id ){
 		$db = new Database();
 		$db->connect();
 		$db->select( 'articulo','*','', 'id='.$id);
@@ -62,11 +61,15 @@
 		}	
 	}
 	
-	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null)
-	{
+	
+	/**
+	 * Obtiene todos los artículos de un usuario, si es admin el de todos los users
+	 * @param number $limit Limite para el resultSet
+	 * @param string $id_usuario
+	 * @return Ambigous <multitype:, NULL>
+	 */
+	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null){
 
-		
-		
 		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c WHERE a.id_usuario = u.id and a.id_categoria = c.id ORDER BY fecha DESC";
 		
 		$db = new Database();
@@ -95,8 +98,7 @@
 
 	
 	
-	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path)
-	{
+	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path){
 		$db = new Database();
 		$db->connect();
 		$db->update(
@@ -108,8 +110,8 @@
 		
 	}
 	
-	function modificarArticuloConFoto( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="")
-	{
+	
+	function modificarArticuloConFoto( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido=""){
 		$db = new Database();
 		$db->connect();
 		$db->update(
