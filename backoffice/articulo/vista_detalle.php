@@ -25,18 +25,6 @@
 				  	</div>
 
 
-
-		<form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post"
-			enctype='multipart/form-data'>
-
-			<div class="form-group">
-				<input type="text" name="titulo" required
-					placeholder="Titulo minimo 5 letras" pattern=".{5,}"
-					value="<?php echo $articulo['titulo'];?>">
-			</div>
-
-				  	
-
 				  	<?php if ( isset($usuarios)) { 
 						echo ' <div class="form-group">	';	
 				  		$html = '<select name="id_usuario">';		
@@ -109,21 +97,13 @@
 						  	<input type="submit" value="modificar" class="btn btn-outline btn-primary btn-lg">
 						  </div>	
 
-				<input type="hidden" name="op" value="4"> <input type="submit"
-					value="modificar" class="btn btn-outline btn-primary btn-lg">
-			</div>	
-
-					 <?php } else { ?>
+					<?php } else { ?>
 						  <div class="form-group">
 
 						  	<input type="hidden" name="op" value="<?php echo(OP_INSERTAR);?>">
 						  	<input type="submit" value="Crear" class="btn btn-outline btn-success btn-lg">
 						  </div>	
-
-				<input type="hidden" name="op" value="0"> <input type="submit"
-					value="Crear" class="btn btn-outline btn-success btn-lg">
-			</div>	
-
+			
 				  	 <?php } ?>
 				  	
 				  </form>
