@@ -28,7 +28,7 @@ if ( isset($_POST["op"]) )
 	$op = $_POST["op"];	
 }
 if ( $op == -1){
-	echo("No se ha solicitado ningun operaci�n");
+	echo("No se ha solicitado ningun operación");
 }
 
 
@@ -112,7 +112,10 @@ function op_detalle($perfil){
 	
 	require('vista_detalle.php');
 }
-
+/**
+ * Modificación del artículo
+ * @param array $perfil los datos del usuario
+ */
 function op_modificar($perfil){
 
 	$id_usuario = $perfil['id']; 
@@ -120,8 +123,9 @@ function op_modificar($perfil){
 		$id_usuario = $_POST["id_usuario"];
 	}
 
-	if(!isset($_POST['foto'])){
-		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido']);
+	if($_FILES['foto']['name']==""){//si $_FILES['foto']['name'] está vacío es que no se envía foto para subir
+		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido']);
+
 	}else{
 		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
 	}
