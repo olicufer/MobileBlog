@@ -8,8 +8,8 @@ class CorreoElectronico {
 	private $phpMailer = null;
 	private $port = 465;
 	private $host = "smtp.gmail.com";
-	private $mail_user = 'gaizkamontero20@gmail.com';
-	private $mail_pass = 'gmontero20';
+	private $mail_user = 'mobileblog2015@gmail.com';
+	private $mail_pass = '2015mb15';
 	private $appName = 'MobileBlog App';
 	private $type_smtp = 'ssl';
 	
@@ -43,42 +43,21 @@ class CorreoElectronico {
 	}
 		
 	//Metodos
-	public static function mandarMail($address, $nombre) {
-		// crear un objeto de la libreria PHPMailer
-		$mail = new PHPMailer ();
-		// indico a la clase que use SMTP
-		$mail->IsSMTP ();
-		// permite modo debug para ver mensajes de las cosas que van ocurriendo
-		// $this->phpMailer->SMTPDebug = 2;
-		// Debo de hacer autenticación SMTP
-		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = "ssl";
-		
-		// indico el servidor de Gmail para SMTP
-		$mail->Host = "smtp.gmail.com";
-		// indico el puerto que usa Gmail
-		$mail->Port = 465;//$this::$port;
-		
-		// indico un usuario / clave de un usuario de gmail
-		$mail->Username = "gaizkamontero20@gmail.com";
-		$mail->Password = "gmontero20";
-		
-		// indicar desde donde enviamos
-		$mail->SetFrom ( 'gaizkamontero20@gmail.com', 'MobileBlog App' );
-		// indicar remitente
-		$mail->AddReplyTo ( "gaizkamontero20@gmail.com", "MobileBlog App" );
+	function mandarMail($address, $nombre, $subject="MobileBlog") {
 		// Asunto
-		$mail->Subject = "Ongi Etorri a MobileBlog";
+		$this->phpMailer->Subject = $subject;
 		// Cuerpo del mensaje
 		// $this->phpMailer->MsgHTML("Hola que tal, esto es el cuerpo del mensaje!");
-		$plantilla = file_get_contents ( "../plantillas/nuevo-usuario.html" );
+		$plantilla = file_get_contents ( "../plantillas/nuevo-usuario.php" );
 		$contenido = str_replace ( "{usuario}", $nombre, $plantilla );
-		$mail->MsgHTML ( $contenido );
+		$url = "localhost/MobileBlog/core/validarControlador.php?usr=".$nombre;
+		$contenido = str_replace ( "{url}", $url, $contenido );
+		$this->phpMailer->MsgHTML ( $contenido );
 		// $this->phpMailer->MsgHTML(file_get_contents('../plantillas/nuevo-usuario.html'));
 		// indico destinatario
 		// $address = "gaizkamontero20@gmail.com";
-		$mail->AddAddress ( $address, $nombre );
-		if (! $mail->Send ()) {
+		$this->phpMailer->AddAddress ( $address, $nombre );
+		if (! $this->phpMailer->Send ()) {
 			echo "Error al enviar: " . $mail->ErrorInfo;
 		} else {
 			echo "Mensaje enviado!";

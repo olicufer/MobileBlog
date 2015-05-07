@@ -44,14 +44,7 @@ require_once '../core/utilidades.php';
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <style>
-      #map-canvas {
-        height: 300px;
-        width: 300px;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
+
 
 </head>
 
@@ -93,7 +86,7 @@ require_once '../core/utilidades.php';
                             </fieldset>
                         </form>
                         
-                       
+
                         
                     </div>
                 </div>
@@ -108,7 +101,7 @@ require_once '../core/utilidades.php';
 		 
 		  console.info('Jquery cargado');
 
-		  
+
 		  var tooltip = $('#tooltip'); //.html('hola');
 		  var tooltip2 = $('#tooltip2');
 		  var inputNombre = $('#form-registro input[name="usuario"]');
