@@ -30,6 +30,8 @@ define('CONTROLLER_CATEGORIA', WEBROOT_BACK.'categoria/controlador.php' );
 
 define('CONTROLLER_USER', WEBROOT_BACK.'usuario/controlador.php' );
 
+define('CONTROLLER_PERFIL', WEBROOT_HTML_BACK.'userprofile.php' );
+
 /* Operaciones */
 
 define ('OP_INSERTAR',   0 );

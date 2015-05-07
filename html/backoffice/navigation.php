@@ -72,7 +72,7 @@
 	                        </li>
 	                       
                        		<li>
-	                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Perfil</a>
+	                            <a href="<?php echo(CONTROLLER_PERFIL);?>"><i class="fa fa-dashboard fa-fw"></i> Perfil</a>
 	                        </li>
 	                        
                       	<?php }?>
