@@ -44,4 +44,3 @@ Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuración acc
 
 admin@admin.com	Administrador; pass: 123456		
 user2@user2.com	Usuario      ; pass: 123456  
-
