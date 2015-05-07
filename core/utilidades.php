@@ -113,6 +113,20 @@ class Utilidades{
 		
 	}
 	
+	/**
+	 * Muestra el mensaje enviado por $_GET con los parametros "msg" y "msg-type"
+	 */
+	public static function pintarMensaje(){
+		if ( isset($_GET['msg'])){
+			if ( isset($_GET['msg-type'])){ //class for style
+				echo('<div class="alert '.$_GET['msg-type'].'">');
+			}else{
+				echo('<div class="alert alert-danger">');
+			}
+			echo $_GET['msg'];
+			echo('</div>');
+		}
+	}
 	
 	
 }

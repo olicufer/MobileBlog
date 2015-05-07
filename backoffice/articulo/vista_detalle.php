@@ -26,20 +26,45 @@
 					value="<?php echo $articulo['titulo'];?>">
 			</div>
 				  	
+
+				  	<?php if ( isset($usuarios)) { 
+						echo ' <div class="form-group">	';	
+				  		$html = '<select name="id_usuario">';		
+						foreach ( $usuarios as $user ) {								 			
+							$html .='<option selected value="'.$user['id'].'">';								
+							$html .= $user['nombre'];
+							$html .='</option>';
+						}
+						$html .='</select>';
+						echo $html;
+						echo ' </div>';
+				  		
+				  	} //if ?>
+				  	
 				  	<?php
-							
-							if (isset ( $usuarios )) {
-								echo ' <div class="form-group">	';
-								$html = '<select name="id_usuario">';
-								foreach ( $usuarios as $user ) {
-									$html .= '<option selected value="' . $user ['id'] . '">';
-									$html .= $user ['nombre'];
-									$html .= '</option>';
-								}
-								$html .= '</select>';
-								echo $html;
-								echo ' </div>';
-							} // if ?> 
+
+				  	 //var_dump($articulo);
+				  	 if ( isset($categorias)) { 
+						echo ' <div class="form-group">	';	
+				  		$html = '<select name="id_categoria">';		
+						foreach ( $categorias as $categ ) {		
+
+							if ( $articulo['id_categoria'] == $categ['id'] ){							
+								$html .='<option selected value="'.$categ['id'].'">';
+							}else{
+								$html .='<option value="'.$categ['id'].'">';
+							}
+								
+							$html .= $categ['titulo'];
+							//var_dump($categ);
+							$html .='</option>';
+						}
+						$html .='</select>';
+						echo $html;
+						echo ' </div>';
+				  		
+				  	} //if ?>  
+
 				  	 
 				  	 				  	
 				  	<input type="hidden" name="id"
@@ -50,6 +75,7 @@
 				  		<?php echo $articulo['contenido'];?>
 				  	</textarea>
 
+
 			<div class="form-group">
 				  	<?php if ($articulo['foto'] == ""){ //si el artículo no tiene foto que ponga la de por defecto ?>
 				  		<img src="<?php echo '../public/images/foto.svg' ?>" alt='foto'
@@ -57,6 +83,7 @@
 				  	<?php }else{//y sino que ponga la img guardada en la db?>
 				  		<img src="<?php echo IMAGES.$articulo['foto']?>" alt='foto'
 					class="img-med" />
+
 				  	<?php }?>
 				  	
 				  	</div>
