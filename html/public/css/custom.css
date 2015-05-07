@@ -10,6 +10,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
 .thumbnail img{
 	
 	transition: 1.5s ease;
@@ -29,8 +30,12 @@ h3{
 	margin-bottom:25px;
 }
 
+.img-med{
+	width: 319px;
+	height: auto;
+
 .thumbnail{
-	border-radius:5px 40px;
+	/*border-radius:5px 40px;*/
 	border:1px solid #cccccc;
 	text-align:center;
 	padding:0px 15px 10px;
@@ -56,5 +61,5 @@ img:hover{
 	margin:15px 0px;
 	text-align:left;
 	
-	
+
 }

@@ -1,3 +1,7 @@
+<?php 
+	include_once 'core/CorreoElectronico.php';
+?>
+
 <center>
  					<table width="610" style="border-spacing:0;Margin:0 auto">
 						<tbody><tr>
@@ -53,7 +57,7 @@
 																	<td style="vertical-align:top;text-align:left;padding-left:70px;padding-right:70px;padding-bottom:30px;padding-top:30px">
 																		<div>
 																			
-																			<a href="http://transactional.cmail2.com/t/y-l-6e4118a4e9c911e49d9c30e6a0a0a744-jihiyudhyd-y-r/" style="background-color:#62a30c;background-image:url(https://ci4.googleusercontent.com/proxy/ChBP_41qDYr8x91W2c0rpRHMwoXqlIeceNVE8UWfNQEiYEdttMV7S3DXUDAlikXy0TwT1_79DClMEDkbORHUjJr3zOJgnRkpv_nf8Rme=s0-d-e1-ft#https://img.createsend1.com/img/onboarding/btn-green.png);background-repeat:repeat-x;border-width:1px;border-style:solid;border-color:#538c02;border-radius:3px;color:#ffffff;display:inline-block;font-weight:normal;font-family:sans-serif;font-size:14px;line-height:45px;text-align:center;text-decoration:none;width:260px" target="_blank">Activa tu cuenta y logeate</a>
+																			<a href="{url}" style="background-color:#62a30c;background-image:url(https://ci4.googleusercontent.com/proxy/ChBP_41qDYr8x91W2c0rpRHMwoXqlIeceNVE8UWfNQEiYEdttMV7S3DXUDAlikXy0TwT1_79DClMEDkbORHUjJr3zOJgnRkpv_nf8Rme=s0-d-e1-ft#https://img.createsend1.com/img/onboarding/btn-green.png);background-repeat:repeat-x;border-width:1px;border-style:solid;border-color:#538c02;border-radius:3px;color:#ffffff;display:inline-block;font-weight:normal;font-family:sans-serif;font-size:14px;line-height:45px;text-align:center;text-decoration:none;width:260px" target="_blank">Activa tu cuenta y logeate</a>
 																		</div>
 																	</td>
 																</tr>

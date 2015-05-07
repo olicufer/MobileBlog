@@ -1,22 +1,23 @@
 # MobileBlog
 
-App web para que los usuarios registrados puedan publicar noticias desde su móvil.
-La noticia dispondrá de una foto, texto, localizacion (latitud y longitud ) y foto del usuario que la publica.
+App web para que los usuarios registrados puedan publicar noticias desde su mï¿½vil.
+La noticia dispondrï¿½ de una foto, texto, localizacion (latitud y longitud ) y foto del usuario que la publica.
 
 <h2>Secciones</h2> 
-<h3>Pública</h3>
-Cualquier usuario verá las últimas diez noticias publicadas por el resto de usuarios “listado noticias”. Si quiere publicar una nueva noticia debe estar logueado en la aplicación como usuario registrado.	 Las noticias de esta pantalla sólo contendrá el título de la noticia, si queremos ver la descripción se deberá pulsar sobre la imagen para ver el “detalle noticia”
+<h3>Pï¿½blica</h3>
+Cualquier usuario verï¿½ las ï¿½ltimas diez noticias publicadas por el resto de usuarios ï¿½listado noticiasï¿½. Si quiere publicar una nueva noticia debe estar logueado en la aplicaciï¿½n como usuario registrado.	 Las noticias de esta pantalla sï¿½lo contendrï¿½ el tï¿½tulo de la noticia, si queremos ver la descripciï¿½n se deberï¿½ pulsar sobre la imagen para ver el ï¿½detalle noticiaï¿½
 <h3>backoffice</h3>
-Web de administración para poder administrar las noticias y usuarios.
+Web de administraciï¿½n para poder administrar las noticias y usuarios.
 Solo accesible para usuarios administradores
 <h3>front-office</h3>
-Web de administración para el perfil del usuario.
+Web de administraciï¿½n para el perfil del usuario.
 Cada usuario solo puede acceder a su perfil y modificar sus datos: [nombre, email, foto y password]
 
 
-<h2>Instalación</h2>
 
-Cambiar los parametros de conexión a la base datos en fichero: <strong>"core/Database.php"</strong>
+<h2>Instalaciï¿½n</h2>
+
+Cambiar los parametros de conexiï¿½n a la base datos en fichero: <strong>"core/Database.php"</strong>
 Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tablas necesarias 
 
 	/* 
@@ -29,14 +30,14 @@ Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tabla
 
 
 <h3>Emails</h3>
-Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuración acceder al fichero <strong>core/CorreoElectronico.php</strong>
+Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuraciï¿½n acceder al fichero <strong>core/CorreoElectronico.php</strong>
 
 	//Atributos privados
 	private $phpMailer = null;
 	private $port = 465;
 	private $host = "smtp.gmail.com";
 	private $mail_user = 'tuEmail0@gmail.com';
-	private $mail_pass = 'tu contraseña';
+	private $mail_pass = 'tu contraseï¿½a';
 	private $appName = 'MobileBlog App';
 	private $type_smtp = 'ssl';
 

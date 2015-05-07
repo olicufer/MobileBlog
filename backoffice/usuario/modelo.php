@@ -151,6 +151,29 @@
 		return $resul;
 	}
 	
+	/**
+	 * Comprueba si existe el usuario en la bbdd y esta sin validar
+	 * @param $email
+	 * @param $pass
+	 * @return usuario y si no existe null
+	 */
+	function checkUsuarioNoValidado( $nombre )
+	{
+		$resul = null;
+		$db = new Database();
+		$db->connect();
+	
+		//si retorna true encuentra usuario
+		if ( $db->select( 'usuario','*','', "nombre='".$nombre."' and validar=0" ))
+		{
+			$resul = $db->getResult()[0];//retorna primer resultado del array
+		}else{
+			throw new Exception('Fallo SQL: checkUsuarioNuevo');
+		}
+		$db->disconnect();
+		return $resul;
+	}
+	
 	function getUsuarios()
 	{
 
@@ -180,6 +203,24 @@
 					'id='.$id);		
 		$db->disconnect();		
 		
+	}
+	
+	/**
+	 * Activamos el usuario al recibir la confirmacion desde el mail del usuario.
+	 * @param $nombre
+	 * @param $validar
+	 */
+	function activarUsuario($nombre, $validar=1)
+	{
+		$db = new Database();
+		$db->connect();
+		$db->update('usuario',
+				array(
+						'validar'=>$validar		
+				),
+				"nombre='".$nombre."'");
+		$db->disconnect();
+	
 	}
 
 ?>

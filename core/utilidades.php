@@ -78,7 +78,7 @@ class Utilidades{
 				//recuerden que deben crear un directorio con este mismo nombre
 				//en el mismo lugar donde se encuentra el archivo subir.php
 				$ruta = UPLOAD_DIRECTORIO . $_FILES['foto']['name'];
-				var_dump($ruta);
+				//var_dump($ruta);
 				//comprovamos si este archivo existe para no volverlo a copiar.
 				//pero si quieren pueden obviar esto si no es necesario.
 				//o pueden darle otro nombre para que no sobreescriba el actual.
@@ -91,7 +91,7 @@ class Utilidades{
 					if ($resultado){
 						echo "el archivo ha sido movido exitosamente";
 					
-						$path = PUBLIC_IMG.$_FILES['foto']['name'];;												
+						$path = $_FILES['foto']['name'];
 		
 						echo "inserccion con exito de la foto";
 		
@@ -99,7 +99,8 @@ class Utilidades{
 						echo "ocurrio un error al mover el archivo.";
 					}
 				} else {
-					echo $_FILES['foto']['name'] . ", este archivo existe";
+					//echo $_FILES['foto']['name'] . ", este archivo existe";
+					$path = $_FILES['foto']['name'];
 				}
 			} else {
 				echo "archivo no permitido, es tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes";
@@ -112,6 +113,20 @@ class Utilidades{
 		
 	}
 	
+	/**
+	 * Muestra el mensaje enviado por $_GET con los parametros "msg" y "msg-type"
+	 */
+	public static function pintarMensaje(){
+		if ( isset($_GET['msg'])){
+			if ( isset($_GET['msg-type'])){ //class for style
+				echo('<div class="alert '.$_GET['msg-type'].'">');
+			}else{
+				echo('<div class="alert alert-danger">');
+			}
+			echo $_GET['msg'];
+			echo('</div>');
+		}
+	}
 	
 	
 }
