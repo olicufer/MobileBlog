@@ -1,5 +1,6 @@
 <?php
-//incluimos la librerÃ­a
+//incluimos la librería
+require_once ('config.php');
 require_once ('../librerias/PHPMailer/PHPMailerAutoload.php');
 
 class CorreoElectronico {
@@ -23,7 +24,7 @@ class CorreoElectronico {
 		if($debug){
 			$this->phpMailer->SMTPDebug = 2;
 		}
-		// Debo de hacer autenticaciÃ³n SMTP
+		// Debo de hacer autenticación SMTP
 		$this->phpMailer->SMTPAuth = true;
 		$this->phpMailer->SMTPSecure = $this->type_smtp;
 		
@@ -50,7 +51,7 @@ class CorreoElectronico {
 		// $this->phpMailer->MsgHTML("Hola que tal, esto es el cuerpo del mensaje!");
 		$plantilla = file_get_contents ( "../plantillas/nuevo-usuario.php" );
 		$contenido = str_replace ( "{usuario}", $nombre, $plantilla );
-		$url = "localhost/MobileBlog/core/validarControlador.php?usr=".$nombre;
+		$url = WEBROOT."core/validarControlador.php?usr=".$nombre;
 		$contenido = str_replace ( "{url}", $url, $contenido );
 		$this->phpMailer->MsgHTML ( $contenido );
 		// $this->phpMailer->MsgHTML(file_get_contents('../plantillas/nuevo-usuario.html'));

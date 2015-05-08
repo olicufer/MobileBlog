@@ -25,11 +25,11 @@ try {
 				var_dump($e);
 			}
 			$msg="El usuario ha sido activado";
-			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg."&msg-type=alert-success" );
+			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg."&msg-type=alert-info" );
 			exit;
 		}else{
 			$msg="El usuario ya esta activado, introduce email y password, y disfruta de MobileBlog!";
-			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg );
+			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg."&msg-type=alert-success" );
 			exit;
 		}
 		

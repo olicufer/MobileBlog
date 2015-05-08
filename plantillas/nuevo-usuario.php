@@ -98,7 +98,7 @@
 												<tbody><tr>
 													<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;vertical-align:top;text-align:left">
 														<p style="Margin-top:0;font-weight:normal;color:#677483;font-family:sans-serif;font-size:14px;line-height:25px;Margin-bottom:15px">Gracias<br>
-<em style="color:#a9b7c8;font-style:italic">Gaizka Montero</em></p>
+<em style="color:#a9b7c8;font-style:italic">Administrador de Mobile Blog</em></p>
 													</td>
 												</tr>
 											</tbody></table>

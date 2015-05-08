@@ -8,7 +8,7 @@ define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
-define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/uploads/' );
+define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/uploads/' );
 
 define('IMAGES', WEBROOT.'uploads/' );
 

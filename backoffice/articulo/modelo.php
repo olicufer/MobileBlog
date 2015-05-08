@@ -70,23 +70,26 @@
 	 */
 	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null){
 
-		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c WHERE a.id_usuario = u.id and a.id_categoria = c.id ORDER BY fecha DESC";
+		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c   ";
+		$where = ' WHERE a.id_usuario = u.id and a.id_categoria = c.id ';
+		$order_by = " ORDER BY fecha DESC ";
 		
 		$db = new Database();
 		$db->connect();
 		
-		$where = '';
+		
+		
 		if ( isset($id_usuario) ){
-			$where =' and id_usuario='.$id_usuario;
+			$where .=' and id_usuario='.$id_usuario;
 		}
 		
-		$where = '';
+		//$where = '';
 		if ( isset($id_categoria) ){
-			$where =' and id_categoria='.$id_categoria;
+			$where .=' and id_categoria='.$id_categoria;
 		}
 		
 		//$db->select( 'articulo','*','', $where ,'', '');
-		$db->sql( $sql.$where );
+		$db->sql( $sql.$where.$order_by );
 		
 		
 		$res = $db->getResult();
