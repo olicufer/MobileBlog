@@ -25,7 +25,7 @@ try {
 				var_dump($e);
 			}
 			$msg="El usuario ha sido activado";
-			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg );
+			header( 'Location: '.WEBROOT."html/login.php?msg=".$msg."&msg-type=alert-success" );
 			exit;
 		}else{
 			$msg="El usuario ya esta activado, introduce email y password, y disfruta de MobileBlog!";
@@ -36,7 +36,7 @@ try {
 		//validacion ERROR => mensaje y mandar registro de nuevo
 } catch (Exception $e) {
 	var_dump($e);
-	$msg="Fallo SQL";
+	$msg="Fallo en la Validaci&oacute;n";
 	header( 'Location: '.WEBROOT."html/registro.php?msg=".$msg );
 	exit;
 }	
