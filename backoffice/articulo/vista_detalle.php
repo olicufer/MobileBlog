@@ -28,8 +28,13 @@
 				  	<?php if ( isset($usuarios)) { 
 						echo ' <div class="form-group">	';	
 				  		$html = '<select name="id_usuario">';		
-						foreach ( $usuarios as $user ) {								 			
-							$html .='<option selected value="'.$user['id'].'">';								
+						foreach ( $usuarios as $user ) {	
+
+							if ( $user['id']==$perfil['id'] ){							
+								$html .='<option selected value="'.$user['id'].'">';
+							}else{
+								$html .='<option value="'.$user['id'].'">';
+							}								
 							$html .= $user['nombre'];
 							$html .='</option>';
 						}
