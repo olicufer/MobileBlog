@@ -45,4 +45,3 @@ Para enviar emails usamos una cuenta de GMAIL, para cambiar la configuraci�n a
 
 admin@admin.com	Administrador; pass: 123456		
 user2@user2.com	Usuario      ; pass: 123456  
-
