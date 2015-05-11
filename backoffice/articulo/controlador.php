@@ -120,12 +120,8 @@ function op_modificar($perfil){
 		$id_usuario = $_POST["id_usuario"];
 	}
 
-	if($_FILES['foto']['name']==""){//si $_FILES['foto']['name'] está vacío es que no se envía foto para subir
-		modificarArticuloConFoto($_POST['id'], $_POST['titulo'], $id_usuario, $_POST['contenido']);
-
-	}else{
-		modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
-	}
+	modificarArticulo( $_POST['id'], $_POST['titulo'], $id_usuario, $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
+	
 	
 	op_listar($perfil);	
 	
