@@ -101,12 +101,18 @@
 
 	
 	
-	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path){
+	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path=""){
+		
+		$camposUpdate= array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido);
+		if ( $path!=""){
+			$camposUpdate['foto'] = $path;
+		} 
+		
 		$db = new Database();
 		$db->connect();
 		$db->update(
 					'articulo', 
-					array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido, 'foto'=>$path), 
+					$camposUpdate, 
 					'id='.$id
 			);		
 		$db->disconnect();		
@@ -114,17 +120,6 @@
 	}
 	
 	
-	function modificarArticuloConFoto( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido=""){
-		$db = new Database();
-		$db->connect();
-		$db->update(
-				'articulo',
-				array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido),
-				'id='.$id
-		);
-		$db->disconnect();
-	
-	}
 	
 
 ?>
