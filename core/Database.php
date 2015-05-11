@@ -39,24 +39,28 @@ class Database{
 	 * @return boolean: true si se conecta, false en caso contrario
 	 */
 	public function connect(){
-		if(!$this->con){
-			$myconn = @mysql_connect($this->db_host,$this->db_user,$this->db_pass);  // mysql_connect() with variables defined at the start of Database class
-            if($myconn){
-            	$seldb = @mysql_select_db($this->db_name,$myconn); // Credentials have been pass through mysql_connect() now select the database
-                if($seldb){
+            if(!$this->con){
+                $myconn = @mysql_connect($this->db_host,$this->db_user,$this->db_pass);  // mysql_connect() with variables defined at the start of Database class
+                mysql_set_charset('utf8', $myconn);
+                if($myconn){
+                    $seldb = @mysql_select_db($this->db_name,$myconn); // Credentials have been pass through mysql_connect() now select the database
+                    if($seldb){
                 	$this->con = true;
-                    return true;  // Connection has been made return TRUE
-                }else{
+                        return true;  // Connection has been made return TRUE
+                    }
+                    else{
                 	array_push($this->result,mysql_error()); 
-                    return false;  // Problem selecting database return FALSE
+                        return false;  // Problem selecting database return FALSE
+                    }  
+                }
+                else{
+                    array_push($this->result,mysql_error());
+                    return false; // Problem connecting return FALSE
                 }  
-            }else{
-            	array_push($this->result,mysql_error());
-                return false; // Problem connecting return FALSE
-            }  
-        }else{  
-            return true; // Connection has already been made return TRUE 
-        }  	
+            }
+            else{  
+                return true; // Connection has already been made return TRUE 
+            }  	
 	}
 	
 	// Function to disconnect from the database

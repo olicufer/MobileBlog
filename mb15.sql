@@ -47,13 +47,13 @@ CREATE TABLE IF NOT EXISTS `articulo` (
 --
 
 INSERT INTO `articulo` (`id`, `fecha`, `titulo`, `contenido`, `id_usuario`, `id_categoria`, `foto`) VALUES
-(8, '2015-03-16 15:15:35', 'Nuevo articulo sobre pec$$$$$$', '				  						  						  						  						  						  						  		Los PEZKEÃ‘IÃ‘IES (con nombre cientÃ­fico Pisces) son animales vertebrados acuÃ¡ticos, generalmente ectotÃ©rmicos,(regulan su temperatura a partir del medio ambiente) la mayorÃ­a de ellos recubiertos por escamas, y dotados de aletas, que permiten su movimiento continuo en los medios acuÃ¡ticos, y branquias, con las que captan el oxÃ­geno disuelto en el agua. Pisces es una superclase siendo un grupo parafilÃ©tico.        				  					  					  					  					  					  					  	', 3, 2, 'Jellyfish.jpg'),
-(9, '2015-03-16 15:17:15', 'PHP un lenguaje anarkiko', ' lengauje anarko  ', 3, 2, 'Desert.jpg'),
+(8, '2015-03-16 15:15:35', 'Nuevo articulo sobre pezkeñines', '				  						  						  						  						  						  						  		Los PEZKEÃ‘IÃ‘IES (con nombre cientÃ­fico Pisces) son animales vertebrados acuÃ¡ticos, generalmente ectotÃ©rmicos,(regulan su temperatura a partir del medio ambiente) la mayorÃ­a de ellos recubiertos por escamas, y dotados de aletas, que permiten su movimiento continuo en los medios acuÃ¡ticos, y branquias, con las que captan el oxÃ­geno disuelto en el agua. Pisces es una superclase siendo un grupo parafilÃ©tico.        				  					  					  					  					  					  					  	', 3, 2, 'Jellyfish.jpg'),
+(9, '2015-03-16 15:17:15', 'PHP un lenguaje anarkiko', ' lenguaje anarko  ', 3, 2, 'Desert.jpg'),
 (13, '2015-03-26 08:12:09', 'Billabong xxl ', '				  						  						  						  						  						  						  		 The Big Wave Awards Wipeout, Surfline Overall Performance and Women''s Best Performance nominees are in and they are nothing short of legendary.				  					  					  					  					  					  					  	', 2, 3, 'Koala.jpg'),
-(14, '2015-03-26 08:14:18', 'Nuevo articulo333', '', 1, 1, 'Koala.jpg'),
+(14, '2015-03-26 08:14:18', 'Nuevo artículo', '', 1, 1, 'Koala.jpg'),
 (17, '2015-03-26 08:32:27', 'sssseeeerrr', ' ', 3, 1, 'Koala.jpg'),
 (18, '2015-03-26 08:33:41', 'Java mola mucho', '				  						  						  						  						  						  					  					  					  					  	', 2, 5, 'Koala.jpg'),
-(19, '2015-03-26 08:38:32', 'Recien creado', '', 1, 1, 'Koala.jpg'),
+(19, '2015-03-26 08:38:32', 'Recién creado', '', 1, 1, 'Koala.jpg'),
 (20, '2015-04-30 07:22:29', 'New faro de san temlmo', '				  				body		  						  					  	', 2, 2, 'Lighthouse.jpg'),
 (21, '2015-04-30 07:22:42', 'New faro de san temlmo', '				  				body		faf  						  					  	', 2, 1, 'Lighthouse.jpg'),
 (22, '2015-05-08 10:24:58', 'Prueba', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1, 1, 'Desert.jpg');
