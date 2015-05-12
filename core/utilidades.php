@@ -90,15 +90,13 @@ class Utilidades {
                         //echo $_FILES['foto']['name'] . ", este archivo existe";
                         $path = $_FILES['foto']['name'];
                     }
-                    } else {
-                            echo "archivo no permitido, es tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes";
+                }
+                else {
+                    echo "archivo no permitido, es tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes";
                 }
             }
         }// end if	 $_FILES['foto']['name'] !=""
-
         return $path;
-
-
     }
 
     /**
