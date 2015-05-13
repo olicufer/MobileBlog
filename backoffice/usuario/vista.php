@@ -26,6 +26,7 @@
 							<th>Email</th>					
 							<th>Rol</th>
 							<th>Nombre</th>
+							<th>Art&iacute;culos</th>
 							<th>Operacion</th>
 						</tr>
 					</thead>
@@ -40,6 +41,10 @@
 					        	<a href="<?php echo(CONTROLLER_USER);?>?op=<?php echo(OP_DETALLE);?>&id=<?php echo $user['id']?>" >
 					        		<?php echo $user['nombre']?>
 					        	</a>
+					        </td>
+					        <td>
+					        	<!--Numero de articulos del usuario-->
+					        	<?php echo $user['articulos']?>
 					        </td>
 					        <td>
 					        	<a href="<?php echo(CONTROLLER_USER);?>?id=<?php echo $user['id']?>&op=<?php echo(OP_ELIMINAR);?>" 

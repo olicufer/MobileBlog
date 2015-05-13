@@ -20,7 +20,7 @@ if (isset ( $_POST ["op"] )) {
 	$op = $_POST ["op"];
 }
 if ($op == - 1) {
-	echo ("No se ha solicitado ningun operación");
+	echo ("No se ha solicitado ningun operaciÃ³n");
 }
 
 // Realizar operacion en funcion de la "op"
@@ -42,7 +42,7 @@ switch ($op) {
 		break;
 }
 function op_listar() {
-	// obtener todos los articulos
+	// obtener todos los usuarios
 	$usuarios = getUsuarios ();
 	// llamar vista listado
 	require ('vista.php');

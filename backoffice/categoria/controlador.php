@@ -25,7 +25,7 @@
 	}
 	
 	if ( $op == -1){
-		echo("No se ha solicitado ningun operación");
+		echo("No se ha solicitado ningun operaciÃ³n");
 	}
 	
 	
@@ -50,7 +50,7 @@
 	
 	
 	function op_listar(){	
-		//obtener todos los articulos
+		//obtener todas las categorÃ­as
 		$categorias = getCategorias(-1, null);
 		//llamar vista listado
 		require('vista.php');
@@ -74,7 +74,7 @@
 	
 	function op_detalle(){
 		if ( isset($_GET['id']) ){
-			//Obtener artículo del modelo
+			//Obtener artï¿½culo del modelo
 			$categoria = detalleCategoria( $_GET['id'] );
 		}else{
 			//Crear nuevo articulo
