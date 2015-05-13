@@ -8,7 +8,7 @@ define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
-define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/uploads/' );
+define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/uploads/' );
 
 define('IMAGES', WEBROOT.'uploads/' );
 
@@ -29,6 +29,8 @@ define('CONTROLLER_ARTICULO', WEBROOT_BACK.'articulo/controlador.php' );
 define('CONTROLLER_CATEGORIA', WEBROOT_BACK.'categoria/controlador.php' );
 
 define('CONTROLLER_USER', WEBROOT_BACK.'usuario/controlador.php' );
+
+define('CONTROLLER_PERFIL', WEBROOT_HTML_BACK.'userprofile.php' );
 
 /* Operaciones */
 

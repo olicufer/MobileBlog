@@ -57,7 +57,10 @@
 	
 	
 	function getCategorias( $limit=10, $id_usuario=null ){
+
 		//SELECT especial que contabiliza el nº de articulos de la categoria
+
+
 		//Left join para mostrar registros de la tabla de la izquierda si no hay coincidencias
 		$sql = "SELECT c.id, c.fecha, c.titulo, count(a.id_categoria) as articulos FROM `categoria` as c LEFT JOIN  `articulo` as a ON id_categoria = c.id group by a.id_categoria";
 		

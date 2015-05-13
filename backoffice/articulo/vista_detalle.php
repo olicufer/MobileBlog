@@ -5,6 +5,7 @@
 <?php require_once  '../../core/utilidades.php'; ?>
 
 <div id="page-wrapper">
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Articulo (Crear / Editar)</h1>
@@ -14,24 +15,26 @@
 	<!-- /.row -->
 	<div class="row">
 
+  			<!-- CONTENIDO PROPIO -->   
+           	  <h1> Detalle articulo: <?php echo $articulo['titulo'];?></h1>
+			  
+				  <form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post" enctype='multipart/form-data'>
+				  
+					 <div class="form-group">				  
+				  		<input type="text" name="titulo" required placeholder="Titulo minimo 5 letras" pattern=".{5,}" value="<?php echo $articulo['titulo'];?>">
+				  	</div>
 
-
-
-		<form action="<?php echo(CONTROLLER_ARTICULO);?>" method="post"
-			enctype='multipart/form-data'>
-
-			<div class="form-group">
-				<input type="text" name="titulo" required
-					placeholder="Titulo minimo 5 letras" pattern=".{5,}"
-					value="<?php echo $articulo['titulo'];?>">
-			</div>
-				  	
 
 				  	<?php if ( isset($usuarios)) { 
 						echo ' <div class="form-group">	';	
 				  		$html = '<select name="id_usuario">';		
-						foreach ( $usuarios as $user ) {								 			
-							$html .='<option selected value="'.$user['id'].'">';								
+						foreach ( $usuarios as $user ) {	
+
+							if ( $user['id']==$perfil['id'] ){							
+								$html .='<option selected value="'.$user['id'].'">';
+							}else{
+								$html .='<option value="'.$user['id'].'">';
+							}								
 							$html .= $user['nombre'];
 							$html .='</option>';
 						}
@@ -94,14 +97,18 @@
 				  	
 				  	<?php if ( $articulo['id'] != -1 ){ ?>
 					  	 <div class="form-group">
-				<input type="hidden" name="op" value="4"> <input type="submit"
-					value="modificar" class="btn btn-outline btn-primary btn-lg">
-			</div>	
-					 <?php } else { ?>
+
+						  	<input type="hidden" name="op" value="<?php echo(OP_MODIFICAR);?>">
+						  	<input type="submit" value="modificar" class="btn btn-outline btn-primary btn-lg">
+						  </div>	
+
+					<?php } else { ?>
 						  <div class="form-group">
-				<input type="hidden" name="op" value="0"> <input type="submit"
-					value="Crear" class="btn btn-outline btn-success btn-lg">
-			</div>	
+
+						  	<input type="hidden" name="op" value="<?php echo(OP_INSERTAR);?>">
+						  	<input type="submit" value="Crear" class="btn btn-outline btn-success btn-lg">
+						  </div>	
+			
 				  	 <?php } ?>
 				  	
 				  </form>

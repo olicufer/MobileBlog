@@ -46,8 +46,7 @@
 	 * @param $id identificador del articulo
 	 * @return articulo si existe, en caso contraio null
 	 */
-	function detalleArticulo( $id )
-	{
+	function detalleArticulo( $id ){
 		$db = new Database();
 		$db->connect();
 		$db->select( 'articulo','*','', 'id='.$id);
@@ -62,28 +61,35 @@
 		}	
 	}
 	
-	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null)
-	{
+	
+	/**
+	 * Obtiene todos los artículos de un usuario, si es admin el de todos los users
+	 * @param number $limit Limite para el resultSet
+	 * @param string $id_usuario
+	 * @return Ambigous <multitype:, NULL>
+	 */
+	function getArticulos( $limit=10 , $id_usuario=null, $id_categoria=null){
 
-		
-		
-		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c WHERE a.id_usuario = u.id and a.id_categoria = c.id ORDER BY fecha DESC";
+		$sql = "SELECT a.id , a.titulo, id_usuario, c.titulo as categoria, u.nombre , a.fecha, a.contenido,  foto FROM `articulo` as a , `usuario` as u, `categoria` as c   ";
+		$where = ' WHERE a.id_usuario = u.id and a.id_categoria = c.id ';
+		$order_by = " ORDER BY fecha DESC ";
 		
 		$db = new Database();
 		$db->connect();
 		
-		$where = '';
+		
+		
 		if ( isset($id_usuario) ){
-			$where =' and id_usuario='.$id_usuario;
+			$where .=' and id_usuario='.$id_usuario;
 		}
 		
-		$where = '';
+		//$where = '';
 		if ( isset($id_categoria) ){
-			$where =' and id_categoria='.$id_categoria;
+			$where .=' and id_categoria='.$id_categoria;
 		}
 		
 		//$db->select( 'articulo','*','', $where ,'', '');
-		$db->sql( $sql.$where );
+		$db->sql( $sql.$where.$order_by );
 		
 		
 		$res = $db->getResult();
@@ -95,31 +101,25 @@
 
 	
 	
-	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path)
-	{
+	function modificarArticulo( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="", $path=""){
+		
+		$camposUpdate= array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido);
+		if ( $path!=""){
+			$camposUpdate['foto'] = $path;
+		} 
+		
 		$db = new Database();
 		$db->connect();
 		$db->update(
 					'articulo', 
-					array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido, 'foto'=>$path), 
+					$camposUpdate, 
 					'id='.$id
 			);		
 		$db->disconnect();		
 		
 	}
 	
-	function modificarArticuloConFoto( $id, $tit , $id_usuario=1, $id_categoria=1, $contenido="")
-	{
-		$db = new Database();
-		$db->connect();
-		$db->update(
-				'articulo',
-				array('titulo'=>$tit, 'id_usuario'=>$id_usuario, 'id_categoria'=>$id_categoria, 'contenido'=>$contenido),
-				'id='.$id
-		);
-		$db->disconnect();
 	
-	}
 	
 
 ?>
