@@ -1,14 +1,12 @@
 <?php
 require_once ('../../core/config.php');
 require_once '../../core/Database.php';
-require_once('../../core/utilidades.php');
-
+require_once ('../../core/utilidades.php');
 
 require_once ('modelo.php');
 
-//comprobar session del usuario
-Utilidades::checkSession();
-
+// comprobar session del usuario
+Utilidades::checkSession ();
 
 // recoger operacion a realizar
 $op = 1;
@@ -47,25 +45,38 @@ function op_listar() {
 	// llamar vista listado
 	require ('vista.php');
 }
-
-
 function op_insert() {
 	// realizar inserccion
 	if ($_POST) {
-		insertarUsuario ( $_POST ['email'], $_POST ['password'], $_POST ['nombre'], $_POST ['rol'] );
-		op_listar ();				
+		$usuarionom = checkUsuarioNombre ( strtoupper ( $_POST ['nombre'] ) ); // comprobar si el nombre  ya existe
+		if ($usuarionom == true) {
+			// echo ($_GET['usuario'] . ' no es un usuario valido');
+			$array = array (
+					'result' => 'error',
+					'msg' => "El nombre '" . $_POST ['nombre'] . "' ya existe en la db" 
+			);
+			//return $array;
+			echo "<br>" . $array['result'] . ": " . $array['msg'] . "<br>";
+		} else if ($usuarioemail = checkUsuarioEmail ( strtolower ( $_POST ['email'] ) )) {//comprobar si el email ya existe sólo si el nombre no está disponible
+			$array = array (
+					'result' => 'error',
+					'msg' => "El e-mail '" . $_POST ['email'] . "' ya existe en la db" 
+			);
+			//return $array;
+			echo "<br>" . $array['result'] . " " . $array['msg'] . "<br>";
+		} else {
+			insertarUsuario ( $_POST ['email'], $_POST ['password'], $_POST ['nombre'], $_POST ['rol'] ); //inserción en db sólo si nombre y email están disponibles
+			
+		}
+		op_listar ();
 	} else {
 		echo ("No se puede insertar por GET");
 	}
 }
-
-
 function op_eliminar() {
 	eliminarUsuario ( $_GET ["id"] );
 	op_listar ();
 }
-
-
 function op_detalle() {
 	if (isset ( $_GET ['id'] )) {
 		// obtener articulo del modelo
@@ -82,12 +93,9 @@ function op_detalle() {
 	}
 	require ('vista_detalle.php');
 }
-
-
 function op_modificar() {
-	
 	if ($_POST) {
-		modificarUsuario ( $_POST ['id'], $_POST ['email'], $_POST ['password'],$_POST ['nombre'],$_POST ['rol'] );
+		modificarUsuario ( $_POST ['id'], $_POST ['email'], $_POST ['password'], $_POST ['nombre'], $_POST ['rol'] );
 	} else {
 		echo ("No se puede insertar por GET");
 	}
