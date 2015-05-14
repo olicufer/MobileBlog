@@ -10,6 +10,18 @@ define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
 define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/uploads/' );
 
+define('PLANTILLAS_DIRECTORIO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/plantillas/' );
+
+define('PLANTILLA_USER', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/plantillas/nuevo-usuario.php' );
+
+define('PLANTILLA_ARTICULO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/plantillas/nuevo-articulo.php' );
+
+define('CORREO_ELECTRONICO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/core/CorreoElectronico.php' );
+
+define('CORREO_ELECTRONICO_LIBRERIA', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/librerias/PHPMailer/PHPMailerAutoload.php' );
+
+define('MODELO_USER', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/backoffice/usuario/modelo.php' );
+		
 define('IMAGES', WEBROOT.'uploads/' );
 
 define('WEBROOT_CORE', WEBROOT.'core/' );
@@ -39,7 +51,6 @@ define ('OP_LISTAR',     1 );
 define ('OP_DETALLE',    2 );
 define ('OP_ELIMINAR',   3 );
 define ('OP_MODIFICAR',  4 );
-
 
 
 class Constantes {
