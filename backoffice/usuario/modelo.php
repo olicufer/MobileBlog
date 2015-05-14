@@ -178,7 +178,7 @@
 	{
 		//SELECT especial que contabiliza el nº de articulos de cada usuario
 		//empleando la claúsula LEFT JOIN en lugar de WHERE para mostrar registros de la tabla de la izquierda aunque no existan coincidencias con la tabla de la dcha
-		$sql = "SELECT u.id, u.nombre,u.email,u.rol, count(a.id_usuario) as articulos FROM `usuario` as u left join `articulo` as a on a.id_usuario = u.id group by a.id_usuario";
+		$sql = "SELECT u.id, u.nombre,u.email,u.rol, count(a.id_usuario) as articulos FROM `usuario` as u left join `articulo` as a on u.id = a.id_usuario group by u.id";
 		
 		$db = new Database();
 		$db->connect();
