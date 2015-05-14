@@ -1,5 +1,5 @@
 <?php 
-	include_once 'core/CorreoElectronico.php';
+	include_once CORREO_ELECTRONICO;
 ?>
 
 <center>
