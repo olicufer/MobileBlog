@@ -35,7 +35,10 @@ Utilidades::checkSession();
 	  <!-- Bootstrap Core CSS -->
 	   <link href="css/bootstrap.min.css" rel="stylesheet">
 	   
-	
+	    <!-- Datatable responsive style https://datatables.net/extensions/responsive/examples/styling/bootstrap.html#  -->
+		<link href="css/dataTables.bootstrap.css" rel="stylesheet">
+		<link href="css/dataTables.responsive.css" rel="stylesheet">		
+		
 	    <!-- Custom CSS -->
 	    <link href="css/sb-admin-2.css" rel="stylesheet">
 	

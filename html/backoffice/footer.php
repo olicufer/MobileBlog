@@ -11,7 +11,9 @@
     
 	<!-- DataTable Plugin -->
 	<script src="js/datatables/js/jquery.dataTables.min.js"></script>
-    
+	<!--  https://datatables.net/extensions/responsive/examples/styling/bootstrap.html# -->
+    <script src="js/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="js/datatables/js/dataTables.bootstrap.js"></script>
    
     <script>
     $(document).ready(function() {

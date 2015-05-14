@@ -10,7 +10,7 @@
         <!-- /.col-lg-12 -->
      </div>
      <!-- /.row -->
-     <div class="row">
+     <div class="row container-fluid">
      
             
            <!--  CONTENIDO PROPIO  --> 
@@ -19,9 +19,9 @@
                 <div class="panel-heading">
                      <h3 class="text-primary">Listado Articulos</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body container-fluid">
                 
-					<table id="tabla">
+					<table id="tabla" class="table table-striped table-hover dt-responsive" cellspacing="0" width="100%">
 					<thead>
 						<tr>
 							<th>Id</th>

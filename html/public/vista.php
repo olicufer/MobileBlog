@@ -89,8 +89,8 @@
 			      		      
 			      <div class="caption">			        
 			        <h4>
-			        	<span class="label label-primary"><?php echo $art['nombre']?></span>
-			        	<span class="label label-success"><?php echo $art['categoria']?></span>
+			        	<p><span class="label label-primary"><?php echo $art['nombre']?></span></p>
+			        	<p><span class="label label-success"><?php echo $art['categoria']?></span></p>
 			        	<span class="label label-default"><?php echo $art['fecha']?></span>
 			        </h4>
 			        
