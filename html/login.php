@@ -3,12 +3,12 @@
  * 	file:html/login.php 
  *  author: Ander Uraga
  *  email: amnsdnd
- *  version:dff
- *  date:  
+ *  version:v1.0
+ *  date:  today
  * 
  */ 
-
 require_once '../core/config.php';
+require_once '../core/utilidades.php';
 
 
 ?>
@@ -56,15 +56,7 @@ require_once '../core/config.php';
                     </div>
                     
                  
-                    <?php 
-                    	
-                    	if ( isset($_GET['msg'])){
-                    		echo('<div class="alert alert-danger">');
-                    		echo $_GET['msg'];
-                    		echo('</div>');
-                    	}
-                    	
-                    ?>
+                    <?php Utilidades::pintarMensaje();  ?>
                     
                     
                     <div class="panel-body">

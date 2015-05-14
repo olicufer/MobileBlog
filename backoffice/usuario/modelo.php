@@ -151,13 +151,42 @@
 		return $resul;
 	}
 	
+	/**
+	 * Comprueba si existe el usuario en la bbdd y esta sin validar
+	 * @param $email
+	 * @param $pass
+	 * @return usuario y si no existe null
+	 */
+	function checkUsuarioNoValidado( $nombre )
+	{
+		$resul = null;
+		$db = new Database();
+		$db->connect();
+	
+		//si retorna true encuentra usuario
+		if ( $db->select( 'usuario','*','', "nombre='".$nombre."' and validar=0" ))
+		{
+			$resul = $db->getResult()[0];//retorna primer resultado del array
+		}else{
+			throw new Exception('Fallo SQL: checkUsuarioNuevo');
+		}
+		$db->disconnect();
+		return $resul;
+	}
+	
 	function getUsuarios()
 	{
-
+		//SELECT especial que contabiliza el nº de articulos de cada usuario
+		//empleando la claúsula LEFT JOIN en lugar de WHERE para mostrar registros de la tabla de la izquierda aunque no existan coincidencias con la tabla de la dcha
+		$sql = "SELECT u.id, u.nombre,u.email,u.rol, count(a.id_usuario) as articulos FROM `usuario` as u left join `articulo` as a on a.id_usuario = u.id group by a.id_usuario";
 		
 		$db = new Database();
 		$db->connect();
-		$db->select( 'usuario');
+		
+		//$db->select( 'usuario');
+		
+		$db->sql($sql);
+		
 		$res = $db->getResult();
 		$db->disconnect();
 		return $res;
@@ -180,6 +209,24 @@
 					'id='.$id);		
 		$db->disconnect();		
 		
+	}
+	
+	/**
+	 * Activamos el usuario al recibir la confirmacion desde el mail del usuario.
+	 * @param $nombre
+	 * @param $validar
+	 */
+	function activarUsuario($nombre, $validar=1)
+	{
+		$db = new Database();
+		$db->connect();
+		$db->update('usuario',
+				array(
+						'validar'=>$validar		
+				),
+				"nombre='".$nombre."'");
+		$db->disconnect();
+	
 	}
 
 ?>

@@ -27,6 +27,14 @@ body {
     }
 }
 
+
+
+.img-med{
+	width: 319px;
+	height: auto;
+}
+
+
 .navbar-top-links {
     margin-right: 0;
 }
@@ -83,6 +91,13 @@ body {
 .navbar-top-links .dropdown-user {
     right: 0;
     left: auto;
+}
+
+.navbar-top-links .dropdown-userfix {
+    /*right: 0;*/
+    margin-left: 5px;
+    left: auto;
+    
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
@@ -351,4 +366,41 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+/* Estilos de userprofile.php */
+#nombre, #email, #password, #rol {
+    font-weight: bold;
+    padding-right: 10px;
+}
+    
+table.row {
+    table-layout: fixed;
+    margin-left: 15px;
+}
+
+table.row td {
+    font-size: 16px;
+    padding: 2px 0 2px 0;
+    color: #23527C;
+}
+
+table.row td.thumb {
+    text-align: left;
+    width: 120px;
+    height: 120px;
+}
+
+table.row td.onsend {
+    padding-top: 10px;
+}
+
+table.row td.thumb img {
+    border: 2px #23527C solid;
+    background-color: #999999;
+    margin-bottom: 15px;
+}
+
+table.row input[type=submit] {
+    font-size: 14px;
 }

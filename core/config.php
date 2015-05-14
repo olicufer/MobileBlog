@@ -8,7 +8,7 @@ define('WEBROOT', 'http://'. $_SERVER['HTTP_HOST'].'/'.APP_NAME.'/' );
 
 define('WEBROOT_BACK', WEBROOT.'backoffice/' );
 
-define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT']. APP_NAME.'/uploads/' );
+define('UPLOAD_DIRECTORIO', $_SERVER['DOCUMENT_ROOT'].'/'. APP_NAME.'/uploads/' );
 
 define('IMAGES', WEBROOT.'uploads/' );
 
@@ -30,24 +30,21 @@ define('CONTROLLER_CATEGORIA', WEBROOT_BACK.'categoria/controlador.php' );
 
 define('CONTROLLER_USER', WEBROOT_BACK.'usuario/controlador.php' );
 
+define('CONTROLLER_PERFIL', WEBROOT_HTML_BACK.'userprofile.php' );
+
 /* Operaciones */
 
-define ('OP_INSERTAR',   0 );
-define ('OP_LISTAR',     1 );
-define ('OP_DETALLE',    2 );
-define ('OP_ELIMINAR',   3 );
-define ('OP_MODIFICAR',  4 );
-
-
+define ('OP_INSERTAR',  0 );
+define ('OP_LISTAR',    1 );
+define ('OP_DETALLE',   2 );
+define ('OP_ELIMINAR',  3 );
+define ('OP_MODIFICAR', 4 );
 
 class Constantes {
-	
-	public static $ROL_ADMINISTRADOR = 0;
-
-	//Roles de los usuarios
-	public static $roles =
-						array(
-								"0" =>"Administrador",
-								"1"=>"Usuario"
-						);
+    public static $ROL_ADMINISTRADOR = 0;
+    //Roles de los usuarios
+    public static $roles = array(
+        "0" => "Administrador",
+        "1" => "Usuario"
+    );
 }
