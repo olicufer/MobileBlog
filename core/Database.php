@@ -278,4 +278,5 @@ class Database{
     public function escapeString($data){
         return mysql_real_escape_string($data);
     }
+
 } 

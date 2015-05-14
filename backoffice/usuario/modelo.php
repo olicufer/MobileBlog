@@ -228,5 +228,42 @@
 		$db->disconnect();
 	
 	}
+	
+	/**
+	 * Obtiene todos los usuarios, para notificarles la creacion de una nueva noticia
+	 * @param number $limit Limite para el resultSet
+	 * @param string $id_usuario
+	 * @return Ambigous <multitype:, NULL>
+	 */
+	function getUsuariosMail(){
+	
+		$sql = "SELECT nombre, email FROM `usuario` WHERE validar=1";
+		//$where = ' WHERE a.id_usuario = u.id and a.id_categoria = c.id ';
+		//$order_by = " ORDER BY fecha DESC ";
+	
+		$db = new Database();
+		$db->connect();
+	
+	
+	
+		/*if ( isset($id_usuario) ){
+			$where .=' and id_usuario='.$id_usuario;
+		}
+	
+		//$where = '';
+		if ( isset($id_categoria) ){
+			$where .=' and id_categoria='.$id_categoria;
+		}*/
+	
+		//$db->select( 'articulo','*','', $where ,'', '');
+		$db->sql( $sql );
+	
+	
+		$res = $db->getResult();
+		$db->disconnect();
+		return $res;
+	
+	
+	}
 
 ?>
