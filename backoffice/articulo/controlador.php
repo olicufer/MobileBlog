@@ -1,7 +1,8 @@
 <?php
 require_once ('../../core/config.php');
 require_once ('../../core/Database.php');
-require_once('../../core/utilidades.php');
+require_once ('../../core/utilidades.php');
+require_once (CORREO_ELECTRONICO);
 
 require_once('modelo.php');
 
@@ -13,8 +14,6 @@ if(!isset($_SESSION)){
 	session_start();
 }
 $perfil = $_SESSION['perfil'];
-
-
 
 //recoger operacion a realizar
 $op = 1; 
@@ -67,7 +66,9 @@ function op_listar($perfil){
 function op_insert($perfil){
 	//realizar inserccion
 	if (isset($_POST["titulo"])) {
-		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() ); 
+		insertarArticulo(  $_POST["titulo"] ,$perfil['id'] , $_POST['id_categoria'], $_POST['contenido'], Utilidades::uploadFoto() );
+		$email=new CorreoElectronico();
+		$email->notificarArticulo();
 		//listar de nuevo todos
 		op_listar($perfil);
 	}else{
