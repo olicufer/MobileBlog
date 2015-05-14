@@ -68,7 +68,7 @@ class Utilidades {
                     //en el mismo lugar donde se encuentra el archivo subir.php
                     $ruta = UPLOAD_DIRECTORIO . $_FILES['foto']['name'];
                     //var_dump($ruta);
-                    //comprovamos si este archivo existe para no volverlo a copiar.
+                    //comprobamos si este archivo existe para no volverlo a copiar.
                     //pero si quieren pueden obviar esto si no es necesario.
                     //o pueden darle otro nombre para que no sobreescriba el actual.
                     if (!file_exists($ruta)){
@@ -77,7 +77,7 @@ class Utilidades {
                         //almacenara true o false
                         $resultado = move_uploaded_file($_FILES['foto']['tmp_name'], $ruta);
 
-                        if ($resultado){
+                        if ($resultado) {
                             echo "el archivo ha sido movido exitosamente";
                             $path = $_FILES['foto']['name'];
                             echo "inserccion con exito de la foto";
@@ -95,7 +95,7 @@ class Utilidades {
                     echo "archivo no permitido, es tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes";
                 }
             }
-        }// end if	 $_FILES['foto']['name'] !=""
+        }// end if $_FILES['foto']['name'] !=""
         return $path;
     }
 
