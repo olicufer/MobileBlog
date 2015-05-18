@@ -17,6 +17,11 @@ Cada usuario solo puede acceder a su perfil y modificar sus datos: [nombre, emai
 
 <h2>Instalación</h2>
 
+Importante el nombre de la carpeta donde se instala, tiene que ser el mismo que tenemos en <strong>"core/config.php"</strong> definido como 'APP_NAME'. CUIDADO: es case sensitive
+/*
+   define ('APP_NAME', 'MobileBlog');
+*/
+
 Cambiar los parametros de conexión a la base datos en fichero: <strong>"core/Database.php"</strong>
 Importar script <strong>"mb15.sql"</strong> para crear la BaseDatos con la tablas necesarias 
 
