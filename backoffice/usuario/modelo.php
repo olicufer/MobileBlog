@@ -79,7 +79,7 @@
 		$email = $db->escapeString($email);
 		
 		//si retorna true encuentra usuario
-		if ( $db->select( 'usuario','*','', 'email="'.$email.'" and password='.$pass ))
+		if ( $db->select( 'usuario','*','', 'email="'.$email.'" and password="'.$pass.'"' ))
 		{			
 			$resul = $db->getResult()[0];//retorna primer resultado del array
 		}		
